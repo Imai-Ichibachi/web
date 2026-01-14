@@ -1,0 +1,130 @@
+.hero {
+    position: relative;
+    padding: 180px 5% 100px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.heading {
+    font-size: 56px;
+    line-height: 1.3;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    color: var(--accent-magenta);
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(transparent 60%, rgba(225, 29, 72, 0.1) 60%);
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.ctaMetrics {
+    display: none;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.buttonMain {
+    padding: 16px 40px;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.buttonMain:hover {
+    transform: translateY(-2px);
+    background: var(--primary-light);
+}
+
+.visual {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+}
+
+.blob1 {
+    width: 300px;
+    height: 300px;
+    background: #fcd34d;
+    top: -50px;
+    right: 10%;
+    z-index: 0;
+}
+
+.blob2 {
+    width: 250px;
+    height: 250px;
+    background: #e11d48;
+    bottom: -50px;
+    left: 10%;
+    z-index: 0;
+}
+
+.mockupPlaceholder {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 32px;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+}

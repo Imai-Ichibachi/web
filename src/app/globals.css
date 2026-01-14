@@ -1,13 +1,28 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --primary: #0f172a;
+  /* Navy/Slate 900 */
+  --primary-light: #1e293b;
+  --accent-magenta: #e11d48;
+  /* Rose 600 */
+  --accent-yellow: #f59e0b;
+  /* Amber 500 */
+  --accent-sky: #0ea5e9;
+  /* Sky 500 */
+
+  --background: #f8fafc;
+  /* Slate 50 */
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  /* Shadows removed per user request */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -17,17 +32,12 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%) no-repeat;
+  background-attachment: fixed;
+  font-family: var(--font-noto-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -35,8 +45,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
 }

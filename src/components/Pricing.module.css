@@ -1,0 +1,242 @@
+.section {
+    padding: 100px 5%;
+    /* Background is transparent to show global gradient */
+    background: transparent;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-magenta);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    color: var(--primary);
+}
+
+.planToggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.toggleButton {
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: #94a3b8;
+    /* Specific small shadow for UI element ok */
+    transition: all 0.2s;
+}
+
+.toggleButton.active {
+    background: var(--primary);
+    color: white;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+    /* Soft shadow for the whole table container */
+    background: white;
+    padding: 10px;
+}
+
+.pricingTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    min-width: 900px;
+}
+
+.headerCell {
+    padding: 24px 10px;
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.headerLabel {
+    background: transparent;
+    width: 140px;
+}
+
+.lite {
+    background: #fbbf24;
+}
+
+.standard {
+    background: #0ea5e9;
+}
+
+.premium {
+    background: #f43f5e;
+}
+
+.option {
+    background: #0f172a;
+}
+
+.planName {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.planNameJa {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+.pricingTable tbody tr td {
+    border: none;
+    padding: 16px;
+    vertical-align: middle;
+}
+
+.rowLabel {
+    background: #f8fafc;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    border-radius: 8px;
+    white-space: pre-line;
+}
+
+.cell {
+    background: white;
+    font-size: 14px;
+    color: var(--text-main);
+    border: 1px solid #f1f5f9;
+    border-radius: 4px;
+}
+
+.highlightText {
+    color: var(--accent-magenta);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.smallText {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.tinyText {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 400;
+    display: block;
+    margin-top: 4px;
+}
+
+.iconX {
+    color: #cbd5e1;
+    margin: 0 auto;
+}
+
+.iconCircle {
+    color: var(--primary);
+    stroke-width: 3px;
+    margin: 0 auto;
+}
+
+.grayBg {
+    background: #f8fafc;
+}
+
+.lightBlueBg {
+    background: #eff6ff;
+}
+
+.badgeBase {
+    background: #2dd4bf;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.optionCell {
+    background: white;
+    vertical-align: middle;
+    border-top: 1px solid #f1f5f9;
+}
+
+.optionContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.optionBadge {
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.priceRow td {
+    border-radius: 0 0 12px 12px;
+    padding: 20px 10px;
+    color: white;
+}
+
+.priceCell {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.priceVal {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.plus {
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+.notes {
+    text-align: left;
+    margin-top: 32px;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Fix rounded corners for table styling specific needs */
+.cell:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.cell:last-child {
+    border-radius: 0 8px 8px 0;
+}
