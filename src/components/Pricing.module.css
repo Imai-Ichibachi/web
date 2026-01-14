@@ -55,7 +55,7 @@
     overflow-x: auto;
     border-radius: 20px;
     /* Soft shadow for the whole table container */
-    background: white;
+    background: rgba(255, 255, 255, 0.6);
     padding: 10px;
 }
 

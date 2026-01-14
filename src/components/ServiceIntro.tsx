@@ -1,24 +1,30 @@
-"use client";
-import styles from "./ServiceIntro.module.css";
-import { MessageCircle, Settings, TrendingUp } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import styles from "./ServiceIntro.module.css";
 
 export default function ServiceIntro() {
     const cards = [
         {
-            icon: <TrendingUp size={32} />,
-            title: "商材への深い理解",
-            description: "ただの運用代行ではありません。お客様の商材やサービスの強みを徹底的に分析し、想いや計画に沿ったコンテンツをご提案します。"
+            num: "01",
+            title: "現状分析・\n戦略設計",
+            link: "#step1",
+            color: "#ff5858",
+            image: "/images/feature_analysis.png"
         },
         {
-            icon: <MessageCircle size={32} />,
-            title: "密なコミュニケーション",
-            description: "細かなコミュニケーションで、状況の変化に即座に対応。逐一軌道修正を行いながら、最短距離で成果を目指します。"
+            num: "02",
+            title: "クリエイティブ\n制作・投稿",
+            link: "#step2",
+            color: "#ffe358",
+            image: "/images/feature_creative.png"
         },
         {
-            icon: <Settings size={32} />,
-            title: "月15万円からの導入",
-            description: "高額な初期費用は不要。スモールスタートで確実な一歩を。SNS運用と広告運用を組み合わせ、効果的な集客を実現します。"
+            num: "03",
+            title: "データ分析・\n改善",
+            link: "#step3",
+            color: "#58dbff",
+            image: "/images/feature_growth.png"
         }
     ];
 
@@ -39,20 +45,29 @@ export default function ServiceIntro() {
 
                 <div className={styles.grid}>
                     {cards.map((card, index) => (
-                        <motion.div
-                            key={index}
-                            className={styles.card}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <div className={styles.iconWrapper}>
-                                {card.icon}
-                            </div>
-                            <h3 className={styles.cardTitle}>{card.title}</h3>
-                            <p className={styles.cardText}>{card.description}</p>
-                        </motion.div>
+                        <Link href={card.link} key={index} style={{ textDecoration: 'none' }}>
+                            <motion.div
+                                className={styles.card}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 0.98 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <div className={styles.number} style={{ color: card.color }}>
+                                    {card.num}
+                                </div>
+                                <h3 className={styles.cardTitle}>{card.title}</h3>
+                                <div className={styles.imageWrapper}>
+                                    <Image
+                                        src={card.image}
+                                        alt={card.title}
+                                        fill
+                                        style={{ objectFit: "contain" }}
+                                    />
+                                </div>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>

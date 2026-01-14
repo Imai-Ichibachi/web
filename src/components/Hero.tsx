@@ -3,6 +3,7 @@ import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -29,11 +30,11 @@ export default function Hero() {
                 </div>
 
                 <div className={styles.buttonGroup}>
-                    <button className={styles.buttonMain}>
+                    <Link href="/contact" className={styles.buttonMain} style={{ textDecoration: 'none' }}>
                         <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             無料で相談する <ArrowRight size={20} />
                         </span>
-                    </button>
+                    </Link>
                 </div>
             </motion.div>
 

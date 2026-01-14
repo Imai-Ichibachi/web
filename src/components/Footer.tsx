@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className={styles.brand}>
                     <div className={styles.logo}>
                         <Image
-                            src="/madeit_logo2.png"
+                            src="/madeit_logo3.png"
                             alt="Madeit"
                             width={160}
                             height={36}

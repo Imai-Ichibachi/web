@@ -21,7 +21,7 @@
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 32px;
     padding: 32px;
     display: flex;

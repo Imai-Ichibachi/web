@@ -44,7 +44,7 @@ export default function Achievements() {
 
     return (
         <section className={styles.section} id="achievements">
-            <h2 className={styles.title}>導入実績・事例</h2>
+            <h2 className={styles.title}>導入事例</h2>
             <div className={styles.grid}>
                 {cases.map((item, index) => (
                     <motion.div

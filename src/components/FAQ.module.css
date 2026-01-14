@@ -17,9 +17,8 @@
 }
 
 .item {
-    background: white;
+    background: rgba(255, 255, 255, 0.6);
     /* Keep white for readability but maybe adjust transparency if needed */
-    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     margin-bottom: 16px;

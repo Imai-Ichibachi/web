@@ -6,22 +6,28 @@ import Image from "next/image";
 export default function Features() {
     const steps = [
         {
+            id: "step1",
             num: "01",
             title: "現状分析・戦略設計",
             desc: "現在のアカウント状況や競合他社を徹底的にリサーチ。あなたのビジネスの強みを見つけ出し、最も効果的な運用方針とKPIを設計します。",
-            image: "/images/feature_analysis.png"
+            image: "/images/feature_analysis.png",
+            color: "#ff5858"
         },
         {
+            id: "step2",
             num: "02",
             title: "クリエイティブ制作・投稿",
             desc: "ターゲットの心に響く企画・構成から、高品質な画像・動画の制作までをワンストップで。トレンドを押さえた編集でエンゲージメントを高めます。",
-            image: "/images/feature_creative.png"
+            image: "/images/feature_creative.png",
+            color: "#ffe358"
         },
         {
+            id: "step3",
             num: "03",
             title: "データ分析・改善",
             desc: "投稿ごとのインサイト数値を細かく分析。「勝ちパターン」を見つけ出し、次回の施策に反映。PDCAを高速で回し、確実な成果へと繋げます。",
-            image: "/images/feature_growth.png"
+            image: "/images/feature_growth.png",
+            color: "#58dbff"
         }
     ];
 
@@ -31,14 +37,16 @@ export default function Features() {
                 {steps.map((step, index) => (
                     <motion.div
                         key={index}
+                        id={step.id}
                         className={styles.step}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        style={{ scrollMarginTop: "100px" }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.number}>{step.num}</div>
+                            <div className={styles.number} style={{ color: step.color, opacity: 1 }}>{step.num}</div>
                             <h3 className={styles.title}>
                                 STEP {step.num}
                                 <span className={styles.titleMain}>{step.title}</span>
