@@ -56,28 +56,66 @@ export default function Reviews() {
     ];
 
     const scrollRef = React.useRef<HTMLDivElement>(null);
+    const [currentIndex, setCurrentIndex] = React.useState(0);
 
-    const scroll = (direction: 'left' | 'right') => {
+    // Calculate max index based on visible items (3 items visible)
+    const maxIndex = cases.length - 3;
+
+    const scrollToIndex = (index: number) => {
         if (scrollRef.current) {
-            const { current } = scrollRef;
-            // Robust scrolling using child element positions
-            const card = current.firstElementChild as HTMLElement;
+            const card = scrollRef.current.firstElementChild as HTMLElement;
             if (!card) return;
+            // card width + gap (30px)
+            const cardWidth = card.offsetWidth + 30;
 
-            const cardWidth = card.offsetWidth + 30; // approx width + gap
-            const currentScroll = current.scrollLeft;
-            const currentIndex = Math.round(currentScroll / cardWidth);
-
-            let targetIndex;
-            if (direction === 'left') {
-                targetIndex = Math.max(0, currentIndex - 1);
-            } else {
-                targetIndex = currentIndex + 1;
-            }
-
-            current.scrollTo({ left: targetIndex * cardWidth, behavior: 'smooth' });
+            scrollRef.current.scrollTo({
+                left: index * cardWidth,
+                behavior: 'smooth'
+            });
+            setCurrentIndex(index);
         }
     };
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (direction === 'left') {
+            if (currentIndex <= 0) {
+                // Infinite loop: jump to last
+                scrollToIndex(maxIndex);
+            } else {
+                scrollToIndex(currentIndex - 1);
+            }
+        } else {
+            if (currentIndex >= maxIndex) {
+                // Infinite loop: jump to first
+                scrollToIndex(0);
+            } else {
+                scrollToIndex(currentIndex + 1);
+            }
+        }
+    };
+
+    // Update index on manual scroll
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (scrollRef.current) {
+                const card = scrollRef.current.firstElementChild as HTMLElement;
+                if (!card) return;
+                const cardWidth = card.offsetWidth + 30;
+                const newIndex = Math.round(scrollRef.current.scrollLeft / cardWidth);
+
+                // Only update if changed and within bounds
+                if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= maxIndex) {
+                    setCurrentIndex(newIndex);
+                }
+            }
+        };
+
+        const el = scrollRef.current;
+        if (el) {
+            el.addEventListener('scroll', handleScroll);
+            return () => el.removeEventListener('scroll', handleScroll);
+        }
+    }, [currentIndex, maxIndex]);
 
     return (
         <section className={styles.section} id="reviews">
@@ -118,8 +156,6 @@ export default function Reviews() {
                             </div>
                         </motion.div>
                     ))}
-                    {/* Add a duplicate card or two to show scrollability if needed, or just these 3 matching the user image */}
-
                 </div>
             </div>
 

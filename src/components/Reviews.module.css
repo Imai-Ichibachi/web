@@ -22,8 +22,6 @@
 .carouselWrapper {
     width: 100%;
     overflow-x: auto;
-    padding-bottom: 40px;
-    margin-bottom: 60px;
     /* Hide scrollbar for cleaner look, but keep functionality */
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -53,9 +51,9 @@
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    width: calc((100% - 90px) / 4);
-    /* 4 items with 30px gap */
-    min-width: 280px;
+    width: calc((100% - 60px) / 3);
+    /* 3 items with 30px gap */
+    min-width: 300px;
     /* Ensure readability on smaller screens */
     flex-shrink: 0;
     /* box-shadow removed */
@@ -176,4 +174,29 @@
     font-weight: 700;
     color: #94a3b8;
     font-size: 14px;
+}
+
+/* Pager Styles */
+.pager {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: -20px;
+    margin-bottom: 60px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+}
+
+.activeDot {
+    background: var(--primary);
+    transform: scale(1.2);
 }
