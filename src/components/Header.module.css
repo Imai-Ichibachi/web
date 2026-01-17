@@ -21,7 +21,15 @@
 .logo {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1002;
+    /* Ensure logo stays above menu if needed, or menu covers it */
 }
+
+/* If the menu covers the logo, z-index of menu should be higher. 
+   Based on reference image 2, the menu covers the entire screen or at least the right side.
+   Let's assume the menu is a full-screen or large side-panel overlay.
+*/
 
 .logoImg {
     height: 40px;
@@ -82,8 +90,169 @@
     transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #031430;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2002;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+    transform-origin: center;
+}
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent backdrop */
+    z-index: 2000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Mobile Menu Panel */
+.mobileMenu {
+    width: 85%;
+    /* Adjust width as needed */
+    max-width: 400px;
+    height: 100%;
+    background: #031430;
+    /* Dark blue from reference */
+    padding: 80px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavLink {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s;
+}
+
+.mobileNavLinkIcon {
+    margin-right: 12px;
+    font-size: 12px;
+}
+
+.mobileActions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.mobileButtonDownload {
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    background: white;
+    color: #031430;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobileButtonInquiry {
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    background: white;
+    color: #031430;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeButtonContainer {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.closeButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .header {
+        position: absolute;
+        /* Changed from fixed to absolute so it scrolls away */
+        background: transparent !important;
+        backdrop-filter: none !important;
+    }
+
+    .scrolled {
+        background: transparent !important;
+        backdrop-filter: none !important;
+    }
+
     .nav {
         display: none;
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
     }
 }

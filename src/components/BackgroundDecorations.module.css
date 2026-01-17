@@ -49,7 +49,7 @@
     font-size: 120px;
     top: 5%;
     left: -2%;
-    transform: rotate(-15deg);
+    /* transform handled in JS */
 }
 
 /* Top Right Area */
@@ -57,7 +57,7 @@
     font-size: 180px;
     top: 15%;
     right: -4%;
-    transform: rotate(20deg);
+    /* transform handled in JS */
 }
 
 /* Middle Left */
@@ -65,7 +65,7 @@
     font-size: 80px;
     top: 40%;
     left: 8%;
-    transform: rotate(45deg);
+    /* transform handled in JS */
     opacity: 0.9;
 }
 
@@ -74,7 +74,7 @@
     font-size: 250px;
     top: 50%;
     right: 15%;
-    transform: rotate(-10deg);
+    /* transform handled in JS */
     opacity: 0.9;
 }
 
@@ -83,7 +83,7 @@
     font-size: 150px;
     bottom: 15%;
     left: 5%;
-    transform: rotate(15deg);
+    /* transform handled in JS */
 }
 
 /* Bottom Right */
@@ -91,7 +91,7 @@
     font-size: 100px;
     bottom: 5%;
     right: 10%;
-    transform: rotate(-30deg);
+    /* transform handled in JS */
 }
 
 /* Extra small one */
@@ -99,6 +99,6 @@
     font-size: 60px;
     top: 25%;
     left: 20%;
-    transform: rotate(60deg);
+    /* transform handled in JS */
     opacity: 0.9;
 }
