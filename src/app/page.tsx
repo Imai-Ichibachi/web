@@ -24,7 +24,7 @@ export default function Home() {
       <Features />
 
       <Achievements />
-      <Reviews />
+      {/* <Reviews /> */}
       <Pricing />
       <FAQ />
       <Footer />

@@ -65,7 +65,7 @@
     padding: 0.5rem 1rem;
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(15, 23, 42, 0.1);
-    border-radius: 9999px;
+    border-radius: 0;
     font-size: 0.875rem;
     font-weight: 500;
     color: #64748b;

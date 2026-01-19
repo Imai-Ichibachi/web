@@ -42,112 +42,60 @@
     padding: 20px 0;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* Feature Item Styling */
-.featureItem {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
+.imageWrapper {
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 40px 20px;
-    display: flex;
-    align-items: flex-start;
-    /* Align icon and text to top */
-    justify-content: flex-start;
-    /* Left align content */
-    text-align: left;
-    /* Default alignment */
-    gap: 20px;
-    /* Ensure height fits the badge overlap */
-    min-height: 180px;
-    backdrop-filter: blur(4px);
-    border: 1px solid #e2e8f0;
 }
 
-.iconWrapper {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #0f172a;
-    border-radius: 8px;
-    /* Slightly rounded square as in image */
-    background: white;
+.featuresImage {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.featureContent {
-    text-align: center;
-}
-
-.featureLabel {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent-magenta);
-    margin-bottom: 8px;
-}
-
-.featureTitle {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 8px;
-    /* Added margin */
-}
-
-.featureDesc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    text-align: left;
-}
-
-/* Central Badge Styling Removed */
-
-.badgeTop {
-    position: absolute;
-    top: -15px;
-    background: var(--accent-magenta);
-    color: white;
-    padding: 8px 24px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-.badgeTop::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--accent-magenta);
-}
-
-.badgeText {
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1.5;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+/* Responsive - Mobile */
+@media (max-width: 1024px) {
+    .section {
+        padding: 60px 5%;
     }
 
-    .centralBadge {
-        position: relative;
-        transform: none;
-        top: auto;
-        left: auto;
-        margin: 40px auto;
+    .title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .description {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    .imageWrapper {
+        max-width: 600px;
+        padding: 30px 15px;
+    }
+
+    .featuresImage {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .imageWrapper {
+        padding: 20px 10px;
+    }
+
+    .featuresImage {
+        width: 95%;
     }
 }

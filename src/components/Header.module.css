@@ -62,7 +62,7 @@
 
 .buttonInquiry {
     padding: 10px 24px;
-    border-radius: 50px;
+    border-radius: 0;
     background: white;
     color: var(--primary);
     border: 1px solid var(--primary);
@@ -77,7 +77,7 @@
 
 .buttonDownload {
     padding: 10px 24px;
-    border-radius: 50px;
+    border-radius: 0;
     background: var(--primary);
     color: white;
     font-weight: 700;
@@ -99,7 +99,7 @@
     width: 50px;
     height: 50px;
     background: #031430;
-    border-radius: 50%;
+    border-radius: 0;
     border: none;
     cursor: pointer;
     padding: 0;
@@ -113,7 +113,7 @@
     width: 24px;
     height: 2px;
     background: white;
-    border-radius: 2px;
+    border-radius: 0;
     transition: all 0.3s linear;
     transform-origin: center;
 }
@@ -183,7 +183,7 @@
 .mobileButtonDownload {
     width: 100%;
     padding: 16px;
-    border-radius: 50px;
+    border-radius: 0;
     background: white;
     color: #031430;
     font-weight: 700;
@@ -198,7 +198,7 @@
 .mobileButtonInquiry {
     width: 100%;
     padding: 16px;
-    border-radius: 50px;
+    border-radius: 0;
     background: white;
     color: #031430;
     font-weight: 700;
@@ -218,7 +218,7 @@
 .closeButton {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 0;
     background: white;
     display: flex;
     justify-content: center;
@@ -234,6 +234,7 @@
         /* Changed from fixed to absolute so it scrolls away */
         background: transparent !important;
         backdrop-filter: none !important;
+        justify-content: center;
     }
 
     .scrolled {

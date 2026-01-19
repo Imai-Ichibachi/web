@@ -64,7 +64,7 @@
     height: 32px;
     background: var(--primary);
     color: white;
-    border-radius: 50%;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,7 +87,7 @@
 
 .planCard {
     background: white;
-    border-radius: 24px;
+    border-radius: 0;
     padding: 32px 24px;
     flex: 1;
     min-width: 300px;
@@ -97,12 +97,6 @@
     position: relative;
     border: 2px solid transparent;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.planCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Themes */
@@ -122,6 +116,14 @@
 .startPlan .ctaButton {
     background: #fbbf24;
     color: white;
+    border: 2px solid #fbbf24;
+    transition: background 0.3s, color 0.3s;
+}
+
+.startPlan .ctaButton:hover {
+    background: white;
+    color: #b45309;
+    border-color: #fbbf24;
 }
 
 .startPlan .purposeBox {
@@ -143,6 +145,14 @@
 .standardPlan .ctaButton {
     background: #0ea5e9;
     color: white;
+    border: 2px solid #0ea5e9;
+    transition: background 0.3s, color 0.3s;
+}
+
+.standardPlan .ctaButton:hover {
+    background: white;
+    color: #0369a1;
+    border-color: #0ea5e9;
 }
 
 .standardPlan .purposeBox {
@@ -164,6 +174,14 @@
 .growthPlan .ctaButton {
     background: #f43f5e;
     color: white;
+    border: 2px solid #f43f5e;
+    transition: background 0.3s, color 0.3s;
+}
+
+.growthPlan .ctaButton:hover {
+    background: white;
+    color: #be123c;
+    border-color: #f43f5e;
 }
 
 .growthPlan .purposeBox {
@@ -209,7 +227,7 @@
 
 /* Purpose */
 .purposeBox {
-    border-radius: 12px;
+    border-radius: 0;
     padding: 16px;
     margin-bottom: 24px;
     text-align: center;
@@ -300,7 +318,7 @@
     font-weight: 900;
     background: #f1f5f9;
     padding: 2px 8px;
-    border-radius: 4px;
+    border-radius: 0;
     display: inline-block;
     margin-bottom: 8px;
     color: var(--text-muted);
@@ -332,19 +350,12 @@
     display: block;
     width: 100%;
     padding: 16px;
-    border-radius: 100px;
+    border-radius: 0;
     text-align: center;
     font-weight: 900;
     text-decoration: none;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
     margin-top: auto;
-}
-
-.ctaButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    opacity: 0.9;
 }
 
 .spOnly {
@@ -358,21 +369,75 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .plansGrid {
-        flex-direction: column;
-        align-items: center;
+    .section {
+        padding: 80px 0;
     }
 
-    .planCard {
-        width: 100%;
-        max-width: 600px;
-        min-width: auto;
+    .container {
+        padding: 0;
+    }
+
+    .label,
+    .title,
+    .commonConditions {
+        padding: 0 5%;
+    }
+
+    .commonConditions {
+        text-align: left;
+    }
+
+    .commonTitle {
+        display: block;
+        text-align: center;
     }
 
     .commonList {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 16px;
+        justify-content: flex-start;
+    }
+
+    .commonItem {
+        margin: 0 20px;
+    }
+
+    .plansGrid {
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 5% 20px 5%;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+    }
+
+    .plansGrid::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .plansGrid::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 0;
+    }
+
+    .plansGrid::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 0;
+    }
+
+    .plansGrid::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    .planCard {
+        flex-shrink: 0;
+        width: 85vw;
+        max-width: 400px;
+        min-width: 300px;
+        scroll-snap-align: center;
     }
 
     .spOnly {

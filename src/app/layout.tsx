@@ -13,6 +13,9 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "SNS・広告運用のMadeit",
   description: "月15万円から始める、売上につながるSNS/広告運用支援。",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +28,7 @@ export default function RootLayout({
       <body className={`${notoSansJP.variable}`}>
         <OpeningAnimation />
         <BackgroundDecorations />
-        <main style={{ position: 'relative', zIndex: 1 }}>
-          {children}
-        </main>
+        <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
       </body>
     </html>
   );
