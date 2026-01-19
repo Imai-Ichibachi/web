@@ -6,7 +6,7 @@ import ServiceIntro from "@/components/ServiceIntro";
 import AboutMadeit from "@/components/AboutMadeit";
 import LogoCarousel from "@/components/LogoCarousel";
 import Features from "@/components/Features";
-import DataAnalysis from "@/components/DataAnalysis";
+
 import Achievements from "@/components/Achievements";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
@@ -22,7 +22,7 @@ export default function Home() {
       <AboutMadeit />
       <ServiceIntro />
       <Features />
-      <DataAnalysis />
+
       <Achievements />
       <Reviews />
       <Pricing />
