@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import styles from "./OpeningAnimation.module.css";
 
 // Particle Colors (Red, Yellow, Blue, Green)
 const COLORS = ["#ff5858", "#ffe358", "#58dbff", "#58ff5e"];
+
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function OpeningAnimation() {
     const [isVisible, setIsVisible] = useState(true);
@@ -19,15 +21,19 @@ export default function OpeningAnimation() {
     const [particles, setParticles] = useState<{ id: number; x: number; y: number; color: string; size: number }[]>([]);
 
     // Check session storage to prevent re-running animation
-    useEffect(() => {
-        const hasVisited = sessionStorage.getItem("visited");
-        if (hasVisited) {
-            setIsVisible(false);
-            return;
-        }
+    useIsomorphicLayoutEffect(() => {
+        try {
+            const hasVisited = sessionStorage.getItem("visited");
+            if (hasVisited) {
+                setIsVisible(false);
+                return;
+            }
 
-        // Mark as visited
-        sessionStorage.setItem("visited", "true");
+            // Mark as visited
+            sessionStorage.setItem("visited", "true");
+        } catch (e) {
+            console.error("Session storage access failed", e);
+        }
 
         setParticles(
             Array.from({ length: particleCount }).map((_, i) => ({
@@ -66,7 +72,6 @@ export default function OpeningAnimation() {
     // If reduced motion is preferred, simple fade logic
     useEffect(() => {
         if (prefersReducedMotion) {
-            setShowLogo(true);
             const exit = setTimeout(() => setIsVisible(false), 2000); // Shorter duration
             return () => clearTimeout(exit);
         }
