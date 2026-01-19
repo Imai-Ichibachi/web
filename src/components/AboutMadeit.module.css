@@ -54,8 +54,12 @@
     border-radius: 20px;
     padding: 40px 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    /* Align icon and text to top */
+    justify-content: flex-start;
+    /* Left align content */
+    text-align: left;
+    /* Default alignment */
     gap: 20px;
     /* Ensure height fits the badge overlap */
     min-height: 180px;
@@ -90,6 +94,15 @@
     font-size: 18px;
     font-weight: 800;
     color: var(--primary);
+    margin-bottom: 8px;
+    /* Added margin */
+}
+
+.featureDesc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-align: left;
 }
 
 /* Central Badge Styling Removed */

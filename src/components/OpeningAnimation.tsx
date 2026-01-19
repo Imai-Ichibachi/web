@@ -15,20 +15,29 @@ export default function OpeningAnimation() {
 
     // Generate random particles
     const particleCount = 20;
+    const [mounted, setMounted] = useState(false);
     const [particles, setParticles] = useState<{ id: number; x: number; y: number; color: string; size: number }[]>([]);
 
+    // Check session storage to prevent re-running animation
     useEffect(() => {
-        // Only run on client to avoid hydration mismatch with random values
-        const newParticles = Array.from({ length: particleCount }).map((_, i) => ({
-            id: i,
-            // Start from random positions off-center, covering the screen
-            // We'll animate them TO center (50%, 50%)
-            x: Math.random() * 100, // 0-100%
-            y: Math.random() * 100, // 0-100%
-            color: COLORS[Math.floor(Math.random() * COLORS.length)],
-            size: Math.random() * 40 + 40, // 40px - 80px
-        }));
-        setParticles(newParticles);
+        const hasVisited = sessionStorage.getItem("visited");
+        if (hasVisited) {
+            setIsVisible(false);
+            return;
+        }
+
+        // Mark as visited
+        sessionStorage.setItem("visited", "true");
+
+        setParticles(
+            Array.from({ length: particleCount }).map((_, i) => ({
+                id: i,
+                x: Math.random() * 100,
+                y: Math.random() * 100,
+                color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                size: Math.random() * 40 + 40,
+            }))
+        );
 
         // Sequence
         // 1. Gather particles (0s - 1.2s)

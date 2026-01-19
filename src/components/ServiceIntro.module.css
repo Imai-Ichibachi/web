@@ -25,9 +25,42 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    /* Adjusted gap */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* PC: 3 items per row approx = 33% minus gap */
+/* We want 3 top, 2 bottom centered. */
+/* If we set width to ~30%, 3 will fit. The 4th will wrap. */
+.cardLink {
+    width: calc(33.333% - 20px);
+    display: block;
+    text-decoration: none;
+    min-width: 250px;
+    /* Prevent too small */
+}
+
+@media (max-width: 1024px) {
+    .cardLink {
+        width: calc(50% - 15px);
+        /* 2 per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: 16px;
+    }
+
+    .cardLink {
+        width: calc(50% - 8px);
+        /* 2 per row tightly packed */
+    }
 }
 
 .card {
