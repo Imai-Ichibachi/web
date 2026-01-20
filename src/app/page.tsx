@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Problems from "@/components/Problems";
 import ProgressExample from "@/components/ProgressExample";
 import ServiceIntro from "@/components/ServiceIntro";
 import AboutMadeit from "@/components/AboutMadeit";
@@ -20,6 +21,7 @@ export default function Home() {
       <Header />
       <Hero />
       <LogoCarousel />
+      <Problems />
       <AboutMadeit />
 
       <ServiceIntro />
