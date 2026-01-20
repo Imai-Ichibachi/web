@@ -1,8 +1,8 @@
 .hero {
     position: relative;
-    padding: 120px 5% 80px;
+    padding: 120px 5% 40px;
     overflow: hidden;
-    min-height: 90vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;

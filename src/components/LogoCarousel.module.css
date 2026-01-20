@@ -1,5 +1,5 @@
 .section {
-    padding: 60px 0;
+    padding: 20px 0 60px;
     overflow: hidden;
     background: transparent;
 }
@@ -15,24 +15,29 @@
 
 .carousel {
     display: flex;
-    width: 200%;
-    animation: scroll 20s linear infinite;
+    width: max-content;
+    animation: scroll 40s linear infinite;
 }
 
 .slide {
-    width: 50%;
+    width: auto;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .logoImg {
-    height: 40px;
-    width: auto;
-    opacity: 0.6;
+    width: 220px;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    margin: 0 10px;
     transition: opacity 0.2s;
-    /* Use standardized blending since logos are on white strip in image but we want transparency if possible. 
-       Actually the image is a strip. We might just show the strip twice. */
+    flex-shrink: 0;
+}
+
+.logoImg:hover {
+    opacity: 0.8;
 }
 
 @keyframes scroll {
