@@ -105,9 +105,10 @@
 }
 
 .labelCell {
-    background-color: #f8fafc;
+    background-color: transparent;
     font-weight: 700;
     color: var(--text-main);
+    display: flex;
     align-items: center;
     text-align: center;
     padding: 24px 16px;
@@ -305,7 +306,7 @@
     .commonItem {
         width: 100%;
         align-items: flex-start;
-        text-align: left;
+        text-align: center;
     }
 
     .commonIcon {
@@ -315,5 +316,41 @@
 
     .commonTitle {
         font-size: 15px;
+    }
+
+    /* Compact Table Styling for Mobile */
+    .cell,
+    .headerCell,
+    .labelCell,
+    .priceCell {
+        padding: 10px 4px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .planEn {
+        font-size: 14px;
+    }
+
+    .planJa {
+        font-size: 10px;
+    }
+
+    .priceVal {
+        font-size: 20px;
+    }
+
+    .priceUnit {
+        font-size: 10px;
+    }
+
+    .flowList li {
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .strong {
+        font-size: 13px;
     }
 }
