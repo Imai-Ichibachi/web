@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ProgressExample from "@/components/ProgressExample";
 import ServiceIntro from "@/components/ServiceIntro";
 import AboutMadeit from "@/components/AboutMadeit";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <LogoCarousel />
       <AboutMadeit />
+      <ProgressExample />
       <ServiceIntro />
       <Features />
 

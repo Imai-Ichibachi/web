@@ -32,6 +32,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 }
 
 .logo {
@@ -55,6 +56,20 @@
     font-family: var(--font-noto-sans), sans-serif;
     user-select: none;
     line-height: 1;
+    transform: translate(-50%, -50%);
+}
+
+.expandingCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%);
+    border-radius: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    z-index: 1;
 }
 
 .skipButton {

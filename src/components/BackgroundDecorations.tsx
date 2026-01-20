@@ -36,28 +36,12 @@ function ParallaxSymbol({
   scrollY: MotionValue<number>;
   winHeight: number;
 }) {
-  // Infinite Loop Logic:
-  // Calculate position based on scrollY.
-  // Move UP when scrolling DOWN (negative direction).
-  // Wrap around window height (+ buffer) to reappear from bottom.
-
-  const loopHeight = winHeight + 200; // Loop area (screen + buffer)
-  const speed = data.depth * 0.5; // Speed factor
+  const speed = data.depth * 0.5; // Faster speed
 
   const yRaw = useTransform(scrollY, (v) => {
-    // Current scroll position offset by speed
+    // Simple upward movement - no looping
     const scrollOffset = v * speed;
-    // Calculate relative position based on initial Y and scroll
-    // (initialY - scrollOffset) makes it move UP.
-    let pos = (data.initialY - scrollOffset) % loopHeight;
-
-    // Handle wrap-around
-    if (pos < -150) {
-      // If slightly above screen
-      pos += loopHeight;
-    } else if (pos > loopHeight - 150) {
-      pos -= loopHeight;
-    }
+    const pos = data.initialY - scrollOffset;
     return pos;
   });
 
@@ -97,31 +81,25 @@ export default function BackgroundDecorations() {
     // Client-side execution
     setWinHeight(window.innerHeight);
 
-    const count = 8; // Reduced count significantly for sparsity
+    const count = 8;
     const newSymbols: FloatingSymbolData[] = [];
 
-    // Use a fixed loop height larger than typical screen height for distribution
-    // Or just use window.innerHeight.
-    // We generate initial positions randomly within 0 to window.innerHeight * 1.5
-    const distributionHeight = window.innerHeight + 200;
+    // Fixed X positions across full screen width
+    const xPositions = [10, 25, 40, 55, 70, 85, 15, 75];
 
     for (let i = 0; i < count; i++) {
-      const depth = Math.random() * 1.0 + 0.2; // 0.2 to 1.2
+      const depth = 0.3 + i * 0.1; // Consistent depth progression
 
-      // Side positioning: 0-20% OR 80-100%
-      const isLeft = Math.random() < 0.5;
-      const x = isLeft
-        ? Math.random() * 20 // 0 - 20%
-        : Math.random() * 20 + 80; // 80 - 100%
+      const x = xPositions[i % xPositions.length];
 
       newSymbols.push({
         id: i,
         x: x,
-        initialY: Math.random() * distributionHeight, // Random start pixel Y
-        size: Math.random() * 150 + 50,
-        rotation: Math.random() * 360,
+        initialY: 100 + i * 300, // Spread out vertically (300px apart)
+        size: 80 + (i % 3) * 40, // Varied sizes: 80, 120, 160
+        rotation: (i * 45) % 360,
         color: colors[i % 4],
-        number: Math.floor(Math.random() * 71) + 30,
+        number: 30 + i * 10,
         depth,
       });
     }

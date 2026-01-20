@@ -77,266 +77,173 @@
     font-weight: 500;
 }
 
-/* Plans Grid */
-.plansGrid {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    align-items: stretch;
+/* Pricing Table */
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
 }
 
-.planCard {
-    background: white;
-    border-radius: 0;
-    padding: 32px 24px;
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+.pricingTable {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    min-width: 1000px;
+    border-top: 2px solid #e2e8f0;
+    text-align: left;
+}
+
+/* Cells */
+.cell,
+.headerCell,
+.labelCell,
+.buttonCell {
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
-    position: relative;
-    border: 2px solid transparent;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    justify-content: center;
 }
 
-/* Themes */
-.startPlan {
-    border-color: #fbbf24;
+.cell:last-child,
+.headerCell:last-child,
+.buttonCell:last-child {
+    border-right: none;
 }
 
-.startPlan .planName,
-.startPlan .priceVal,
-.startPlan .purposeLabel,
-.startPlan .ctaButton,
-.startPlan .flowTitle {
-    color: #b45309;
-    /* Darker yellow/orange for text */
+/* Label Column */
+.labelCell {
+    background: #f8fafc;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-right: 1px solid #e2e8f0;
 }
 
-.startPlan .ctaButton {
-    background: #fbbf24;
-    color: white;
-    border: 2px solid #fbbf24;
-    transition: background 0.3s, color 0.3s;
-}
-
-.startPlan .ctaButton:hover {
-    background: white;
-    color: #b45309;
-    border-color: #fbbf24;
-}
-
-.startPlan .purposeBox {
-    background: #fffbeb;
-}
-
-.standardPlan {
-    border-color: #0ea5e9;
-}
-
-.standardPlan .planName,
-.standardPlan .priceVal,
-.standardPlan .purposeLabel,
-.standardPlan .ctaButton,
-.standardPlan .flowTitle {
-    color: #0369a1;
-}
-
-.standardPlan .ctaButton {
-    background: #0ea5e9;
-    color: white;
-    border: 2px solid #0ea5e9;
-    transition: background 0.3s, color 0.3s;
-}
-
-.standardPlan .ctaButton:hover {
-    background: white;
-    color: #0369a1;
-    border-color: #0ea5e9;
-}
-
-.standardPlan .purposeBox {
-    background: #f0f9ff;
-}
-
-.growthPlan {
-    border-color: #f43f5e;
-}
-
-.growthPlan .planName,
-.growthPlan .priceVal,
-.growthPlan .purposeLabel,
-.growthPlan .ctaButton,
-.growthPlan .flowTitle {
-    color: #be123c;
-}
-
-.growthPlan .ctaButton {
-    background: #f43f5e;
-    color: white;
-    border: 2px solid #f43f5e;
-    transition: background 0.3s, color 0.3s;
-}
-
-.growthPlan .ctaButton:hover {
-    background: white;
-    color: #be123c;
-    border-color: #f43f5e;
-}
-
-.growthPlan .purposeBox {
-    background: #fff1f2;
-}
-
-
-/* Header */
-.cardHeader {
+/* Header Cells */
+.headerCell {
     text-align: center;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #f1f5f9;
+    background: #fff;
+    border-top: 4px solid transparent;
+    /* Colored top border */
+}
+
+.headerCell.mini {
+    border-top-color: #fbbf24;
+}
+
+.headerCell.standard {
+    border-top-color: #0ea5e9;
+}
+
+.headerCell.premium {
+    border-top-color: #f43f5e;
 }
 
 .planName {
     font-size: 24px;
     font-weight: 900;
     margin-bottom: 8px;
-    letter-spacing: 0.05em;
 }
 
-.priceArea {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    color: var(--text-main);
+.headerCell.mini .planName {
+    color: #b45309;
+}
+
+.headerCell.standard .planName {
+    color: #0369a1;
+}
+
+.headerCell.premium .planName {
+    color: #be123c;
+}
+
+/* Price Cells */
+.priceCell {
+    text-align: center;
+    background: #fff;
 }
 
 .priceVal {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 900;
     line-height: 1;
-    margin-right: 4px;
 }
 
 .priceUnit {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-muted);
-}
-
-
-/* Purpose */
-.purposeBox {
-    border-radius: 0;
-    padding: 16px;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.purposeLabel {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    opacity: 0.8;
-}
-
-.purposeText {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.6;
-    color: var(--text-main);
-}
-
-/* Specs */
-.specList {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px 0;
-    text-align: left;
-}
-
-.specList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 12px 0;
-    border-bottom: 1px dotted #e2e8f0;
-    flex-wrap: wrap;
-}
-
-.specLabel {
     font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.specValue {
-    font-size: 15px;
     font-weight: 700;
-    color: var(--text-main);
+    color: var(--text-muted);
 }
 
-.specNote {
-    flex-basis: 100%;
+.headerCell.mini .priceVal,
+.headerCell.mini .priceUnit {
+    color: #b45309;
+}
+
+.headerCell.standard .priceVal,
+.headerCell.standard .priceUnit {
+    color: #0369a1;
+}
+
+.headerCell.premium .priceVal,
+.headerCell.premium .priceUnit {
+    color: #be123c;
+}
+
+
+/* Regular Cells */
+.cell {
+    background: #fff;
+    font-size: 15px;
+    color: var(--text-main);
+    line-height: 1.6;
+    text-align: center;
+    align-items: center;
+}
+
+.cell strong {
+    font-weight: 900;
+}
+
+.cellNote {
     font-size: 12px;
     color: var(--text-muted);
     margin-top: 4px;
-    text-align: right;
 }
 
-/* Flow */
-.flowBox {
+/* Flow/Detail Cells - aligned left */
+.detailCell {
     text-align: left;
-    margin-bottom: 32px;
-    flex-grow: 1;
-    /* Push CTA to bottom */
+    align-items: flex-start;
 }
 
 .flowTitle {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    margin-bottom: 8px;
+    display: block;
 }
 
 .flowSub {
     font-size: 12px;
     font-weight: 500;
     color: var(--text-muted);
-}
-
-.flowSection {
-    margin-bottom: 16px;
-}
-
-.flowType {
-    font-size: 12px;
-    font-weight: 900;
-    background: #f1f5f9;
-    padding: 2px 8px;
-    border-radius: 0;
-    display: inline-block;
-    margin-bottom: 8px;
-    color: var(--text-muted);
+    margin-left: 5px;
 }
 
 .flowList {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
     margin: 0;
 }
 
 .flowList li {
     font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-main);
     margin-bottom: 6px;
     position: relative;
-    padding-left: 14px;
+    padding-left: 12px;
 }
 
 .flowList li::before {
@@ -346,45 +253,70 @@
     color: var(--text-muted);
 }
 
+/* CTA Buttons */
 .ctaButton {
-    display: block;
+    display: inline-block;
     width: 100%;
-    padding: 16px;
-    border-radius: 0;
+    padding: 14px;
     text-align: center;
     font-weight: 900;
     text-decoration: none;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin-top: auto;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.ctaButton:hover {
+    opacity: 0.8;
+}
+
+.ctaButton.mini {
+    background: #fbbf24;
+}
+
+.ctaButton.standard {
+    background: #0ea5e9;
+}
+
+.ctaButton.premium {
+    background: #f43f5e;
 }
 
 .spOnly {
     display: none;
 }
 
-.tinyNote {
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-/* Responsive */
 @media (max-width: 1024px) {
     .section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
-    .container {
-        padding: 0;
+    .tableWrapper {
+        padding: 0 5% 20px 5%;
     }
 
-    .label,
-    .title,
-    .commonConditions {
-        padding: 0 5%;
+    .pricingTable {
+        grid-template-columns: 140px repeat(3, minmax(200px, 1fr));
     }
 
-    .commonConditions {
-        text-align: left;
+    .commonList {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin: 0 auto;
+        max-width: fit-content;
+        /* Center the list block */
+    }
+
+    .commonItem {
+        width: 100%;
+        margin: 0;
+        align-items: flex-start;
+        /* Align icon to top */
+    }
+
+    .commonIcon {
+        margin-top: 2px;
+        /* Slight adjustment for text alignment */
     }
 
     .commonTitle {
@@ -392,55 +324,56 @@
         text-align: center;
     }
 
-    .commonList {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        justify-content: flex-start;
-    }
-
-    .commonItem {
-        margin: 0 20px;
-    }
-
-    .plansGrid {
-        overflow-x: auto;
-        overflow-y: hidden;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        padding: 0 5% 20px 5%;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-    }
-
-    .plansGrid::-webkit-scrollbar {
-        height: 8px;
-    }
-
-    .plansGrid::-webkit-scrollbar-track {
-        background: #f1f5f9;
-        border-radius: 0;
-    }
-
-    .plansGrid::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 0;
-    }
-
-    .plansGrid::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-    }
-
-    .planCard {
-        flex-shrink: 0;
-        width: 85vw;
-        max-width: 400px;
-        min-width: 300px;
-        scroll-snap-align: center;
-    }
-
     .spOnly {
         display: inline;
+    }
+
+    /* Compact styles for mobile table */
+    .cell,
+    .headerCell,
+    .labelCell,
+    .buttonCell {
+        padding: 12px 8px;
+        /* Greatly reduced padding */
+    }
+
+    .planName {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .priceVal {
+        font-size: 24px;
+    }
+
+    .priceUnit {
+        font-size: 11px;
+    }
+
+    .cell {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .labelCell {
+        font-size: 12px;
+        padding-left: 8px;
+    }
+
+    .flowTitle {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .flowList li {
+        font-size: 11px;
+        margin-bottom: 2px;
+        line-height: 1.4;
+        padding-left: 8px;
+    }
+
+    .ctaButton {
+        padding: 10px;
+        font-size: 13px;
     }
 }

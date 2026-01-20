@@ -11,8 +11,8 @@
 }
 
 .title {
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 40px;
+    font-weight: 900;
     margin-bottom: 24px;
     color: var(--primary);
 }
@@ -53,13 +53,8 @@
 }
 
 @media (max-width: 768px) {
-    .grid {
-        gap: 16px;
-    }
-
-    .cardLink {
-        width: calc(50% - 8px);
-        /* 2 per row tightly packed */
+    .section {
+        display: none;
     }
 }
 

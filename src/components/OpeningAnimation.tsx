@@ -8,154 +8,241 @@ import styles from "./OpeningAnimation.module.css";
 // Particle Colors (Red, Yellow, Blue, Green)
 const COLORS = ["#ff5858", "#ffe358", "#58dbff", "#58ff5e"];
 
-const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function OpeningAnimation() {
-    const [isVisible, setIsVisible] = useState(true);
-    const [showLogo, setShowLogo] = useState(false);
-    const prefersReducedMotion = useReducedMotion();
+  const [isVisible, setIsVisible] = useState(true);
+  const [phase, setPhase] = useState<
+    "gather" | "circle" | "expand" | "fade" | "done"
+  >("gather");
+  const prefersReducedMotion = useReducedMotion();
 
-    // Generate random particles
-    const particleCount = 20;
-    const [mounted, setMounted] = useState(false);
-    const [particles, setParticles] = useState<{ id: number; x: number; y: number; color: string; size: number }[]>([]);
+  // Generate particles that cluster together
+  const particleCount = 100;
+  const [particles, setParticles] = useState<
+    {
+      id: number;
+      startX: number;
+      startY: number;
+      endOffsetX: number;
+      endOffsetY: number;
+      color: string;
+      size: number;
+    }[]
+  >([]);
 
-    // Check session storage to prevent re-running animation
-    useIsomorphicLayoutEffect(() => {
-        try {
-            const hasVisited = sessionStorage.getItem("visited");
-            if (hasVisited) {
-                setIsVisible(false);
-                return;
-            }
-
-            // Mark as visited
-            sessionStorage.setItem("visited", "true");
-        } catch (e) {
-            console.error("Session storage access failed", e);
-        }
-
-        setParticles(
-            Array.from({ length: particleCount }).map((_, i) => ({
-                id: i,
-                x: Math.random() * 100,
-                y: Math.random() * 100,
-                color: COLORS[Math.floor(Math.random() * COLORS.length)],
-                size: Math.random() * 40 + 40,
-            }))
-        );
-
-        // Sequence
-        // 1. Gather particles (0s - 1.2s)
-        // 2. Switch to Logo (1.2s)
-        // 3. Fade in Text (1.4s - 2.2s)
-        // 4. Exit (3.0s)
-
-        const logoTimer = setTimeout(() => {
-            setShowLogo(true);
-        }, 1200);
-
-        const exitTimer = setTimeout(() => {
-            setIsVisible(false);
-        }, 3200);
-
-        return () => {
-            clearTimeout(logoTimer);
-            clearTimeout(exitTimer);
-        };
-    }, []);
-
-    const handleSkip = () => {
+  useIsomorphicLayoutEffect(() => {
+    // Check sessionStorage - only show once per session
+    // Cmd+Shift+R (hard refresh) clears sessionStorage, so animation will show
+    try {
+      const hasVisited = sessionStorage.getItem("visited");
+      if (hasVisited) {
         setIsVisible(false);
+        return;
+      }
+      sessionStorage.setItem("visited", "true");
+    } catch (e) {
+      console.error("Session storage access failed", e);
+    }
+
+    // Generate particles with random start positions and clustered end positions
+    const newParticles = Array.from({ length: particleCount }).map((_, i) => {
+      // Random position within cluster area (matching 400px circle)
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 200; // 0-200px radius (matches 400px circle)
+      return {
+        id: i,
+        startX: (Math.random() - 0.5) * window.innerWidth * 1.5,
+        startY: (Math.random() - 0.5) * window.innerHeight * 1.5,
+        endOffsetX: Math.cos(angle) * distance,
+        endOffsetY: Math.sin(angle) * distance,
+        color: COLORS[i % COLORS.length],
+        size: 20 + Math.random() * 25,
+      };
+    });
+    setParticles(newParticles);
+
+    // Sequence (slowed down)
+    // 1. Gather particles into circle (0s - 1.5s)
+    // 2. Transform to solid circle (1.5s - 2.5s)
+    // 3. Expand circle with logo (2.5s - 4.5s)
+    // 4. Fade out (4.5s - 5.5s)
+    // 5. Exit (5.5s)
+
+    const circleTimer = setTimeout(() => setPhase("circle"), 1500);
+    const expandTimer = setTimeout(() => setPhase("expand"), 2500);
+    const fadeTimer = setTimeout(() => setPhase("fade"), 4500);
+    const exitTimer = setTimeout(() => {
+      setPhase("done");
+      setIsVisible(false);
+    }, 5500);
+
+    return () => {
+      clearTimeout(circleTimer);
+      clearTimeout(expandTimer);
+      clearTimeout(fadeTimer);
+      clearTimeout(exitTimer);
     };
+  }, []);
 
-    // If reduced motion is preferred, simple fade logic
-    useEffect(() => {
-        if (prefersReducedMotion) {
-            const exit = setTimeout(() => setIsVisible(false), 2000); // Shorter duration
-            return () => clearTimeout(exit);
-        }
-    }, [prefersReducedMotion]);
+  const handleSkip = () => {
+    setIsVisible(false);
+  };
 
-    if (!isVisible) return null;
+  // If reduced motion is preferred, simple fade logic
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      const exit = setTimeout(() => setIsVisible(false), 1500);
+      return () => clearTimeout(exit);
+    }
+  }, [prefersReducedMotion]);
 
-    return (
-        <AnimatePresence>
-            {isVisible && (
+  if (!isVisible) return null;
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          className={styles.overlay}
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 1, ease: "easeOut" } }}
+        >
+          <button className={styles.skipButton} onClick={handleSkip}>
+            SKIP
+          </button>
+
+          <div className={styles.content}>
+            {/* Phase 1: Particles gathering into circle */}
+            {phase === "gather" &&
+              !prefersReducedMotion &&
+              particles.map((p) => (
                 <motion.div
-                    className={styles.overlay}
-                    initial={{ opacity: 1 }}
-                    exit={{ y: "-100%", opacity: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+                  key={p.id}
+                  className={styles.particle}
+                  style={{
+                    color: p.color,
+                    fontSize: `${p.size}px`,
+                    left: "50%",
+                    top: "50%",
+                  }}
+                  initial={{
+                    x: p.startX,
+                    y: p.startY,
+                    opacity: 0,
+                    scale: 0,
+                  }}
+                  animate={{
+                    x: p.endOffsetX,
+                    y: p.endOffsetY,
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    ease: "easeOut",
+                  }}
                 >
-                    <button className={styles.skipButton} onClick={handleSkip}>SKIP</button>
-
-                    <div className={styles.content}>
-                        {/* Particles -> Logo Transition */}
-                        {!showLogo && !prefersReducedMotion && particles.map((p) => (
-                            <motion.div
-                                key={p.id}
-                                className={styles.particle}
-                                style={{
-                                    color: p.color,
-                                    fontSize: `${p.size}px`,
-                                    left: `${p.x}%`,
-                                    top: `${p.y}%`,
-                                }}
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{
-                                    opacity: [0, 1, 1],
-                                    scale: [0.5, 1, 0.2], // Scale down at end as they converge
-                                    left: "50%",
-                                    top: "50%",
-                                    x: "-50%", // Center align
-                                    y: "-50%"
-                                }}
-                                transition={{
-                                    duration: 1.2,
-                                    ease: "easeOut",
-                                    times: [0, 0.2, 1] // Fade in quickly, move to center
-                                }}
-                            >
-                                %
-                            </motion.div>
-                        ))}
-
-                        {/* Official Logo */}
-                        {(showLogo || prefersReducedMotion) && (
-                            <div className={styles.logoContainer}>
-                                <motion.div
-                                    initial={{ scale: 0.5, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 15,
-                                        duration: 0.4
-                                    }}
-                                >
-                                    <Image
-                                        src="/madeit_logo3.png"
-                                        alt="Madeit"
-                                        width={280}
-                                        height={80}
-                                        className={styles.logo}
-                                        priority
-                                    />
-                                </motion.div>
-
-                                <motion.p
-                                    className={styles.subCopy}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2, duration: 0.8 }}
-                                >
-                                    売上につながる集客支援
-                                </motion.p>
-                            </div>
-                        )}
-                    </div>
+                  %
                 </motion.div>
+              ))}
+
+            {/* Phase 2: Circle of particles (brief hold) */}
+            {phase === "circle" &&
+              !prefersReducedMotion &&
+              particles.map((p) => (
+                <motion.div
+                  key={p.id}
+                  className={styles.particle}
+                  style={{
+                    color: p.color,
+                    fontSize: `${p.size}px`,
+                    left: "50%",
+                    top: "50%",
+                    x: p.endOffsetX,
+                    y: p.endOffsetY,
+                  }}
+                  animate={{ scale: [1, 0.5], opacity: [1, 0] }}
+                  transition={{ duration: 1, ease: "easeIn" }}
+                >
+                  %
+                </motion.div>
+              ))}
+
+            {/* Solid circle that expands */}
+            {(phase === "circle" || phase === "expand" || phase === "fade") && (
+              <motion.div
+                className={styles.expandingCircle}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{
+                  scale: phase === "circle" ? 1 : 20,
+                  opacity: phase === "fade" ? 0 : 1,
+                }}
+                transition={{
+                  duration: phase === "fade" ? 1 : phase === "expand" ? 2 : 1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+              />
             )}
-        </AnimatePresence>
-    );
+
+            {/* Logo appears during expansion and fades out */}
+            {(phase === "expand" || phase === "fade") && (
+              <motion.div
+                className={styles.logoContainer}
+                animate={{ opacity: phase === "fade" ? 0 : 1 }}
+                transition={{ duration: 1 }}
+              >
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    delay: phase === "expand" ? 0.3 : 0,
+                  }}
+                >
+                  <Image
+                    src="/madeit_logo3.png"
+                    alt="Madeit"
+                    width={280}
+                    height={80}
+                    className={styles.logo}
+                    priority
+                  />
+                </motion.div>
+
+                <motion.p
+                  className={styles.subCopy}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: phase === "expand" ? 0.6 : 0,
+                    duration: 0.6,
+                  }}
+                >
+                  売上につながる集客支援
+                </motion.p>
+              </motion.div>
+            )}
+
+            {/* Reduced motion fallback */}
+            {prefersReducedMotion && (
+              <div className={styles.logoContainer}>
+                <Image
+                  src="/madeit_logo3.png"
+                  alt="Madeit"
+                  width={280}
+                  height={80}
+                  className={styles.logo}
+                  priority
+                />
+                <p className={styles.subCopy}>売上につながる集客支援</p>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 }
