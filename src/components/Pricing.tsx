@@ -7,7 +7,6 @@ export default function Pricing() {
   return (
     <section className={styles.section} id="pricing">
       <div className={styles.container}>
-        <p className={styles.label}>Price</p>
         <h2 className={styles.title}>料金体系</h2>
 
         {/* Common Conditions */}
@@ -21,9 +20,7 @@ export default function Pricing() {
                 <Check size={18} />
               </div>
               <span>
-                広告用動画は
-                <br className={styles.spOnly} />
-                「獲得用」
+                広告用動画は「獲得用」
                 <span className={styles.commonNote}>
                   （フック強・訴求1点・CTA明確）
                 </span>
@@ -33,10 +30,7 @@ export default function Pricing() {
               <div className={styles.commonIcon}>
                 <Check size={18} />
               </div>
-              <span>
-                広告費は別<span className={styles.commonNote}>（実費）</span>
-                <br className={styles.spOnly} /> ／ 修正：各動画1回まで
-              </span>
+              <span>広告費は別（実費）／ 修正：各動画1回まで</span>
             </li>
             <li className={styles.commonItem}>
               <div className={styles.commonIcon}>
@@ -44,7 +38,6 @@ export default function Pricing() {
               </div>
               <span>
                 撮影1回＝最大3時間
-                <br />
                 <span className={styles.commonNote}>
                   （大阪市内想定・現地撮影で素材担保）
                 </span>
@@ -53,34 +46,24 @@ export default function Pricing() {
           </ul>
         </div>
 
-        {/* Pricing Table */}
+        {/* Pricing Grid Table */}
         <div className={styles.tableWrapper}>
-          <div className={styles.pricingTable}>
-            {/* Header Row */}
-            <div className={styles.labelCell}></div>
-            <div className={`${styles.headerCell} ${styles.mini}`}>
-              <div className={styles.planName}>ミニプラン</div>
-              <div className={styles.priceArea}>
-                <span className={styles.priceVal}>15</span>
-                <span className={styles.priceUnit}>万円／月</span>
-              </div>
+          <div className={styles.pricingGrid}>
+            {/* --- HEADERS --- */}
+            <div className={styles.headerLabel}></div> {/* Empty Corner */}
+            <div className={`${styles.headerCell} ${styles.miniHeader}`}>
+              <span className={styles.planEn}>MINI</span>
+              <span className={styles.planJa}>ミニプラン</span>
             </div>
-            <div className={`${styles.headerCell} ${styles.standard}`}>
-              <div className={styles.planName}>スタンダードプラン</div>
-              <div className={styles.priceArea}>
-                <span className={styles.priceVal}>30</span>
-                <span className={styles.priceUnit}>万円／月</span>
-              </div>
+            <div className={`${styles.headerCell} ${styles.standardHeader}`}>
+              <span className={styles.planEn}>STANDARD</span>
+              <span className={styles.planJa}>スタンダードプラン</span>
             </div>
-            <div className={`${styles.headerCell} ${styles.premium}`}>
-              <div className={styles.planName}>プレミアムプラン</div>
-              <div className={styles.priceArea}>
-                <span className={styles.priceVal}>60</span>
-                <span className={styles.priceUnit}>万円〜／月</span>
-              </div>
+            <div className={`${styles.headerCell} ${styles.premiumHeader}`}>
+              <span className={styles.planEn}>PREMIUM</span>
+              <span className={styles.planJa}>プレミアムプラン</span>
             </div>
-
-            {/* Purpose Row */}
+            {/* --- ROW: 目的 --- */}
             <div className={styles.labelCell}>目的</div>
             <div className={styles.cell}>
               最短で“勝ち訴求”を見つけて、
@@ -97,65 +80,63 @@ export default function Pricing() {
               <br />
               売上インパクトを取りにいく。
             </div>
-
-            {/* Production Row */}
+            {/* --- ROW: 投稿用制作 --- */}
             <div className={styles.labelCell}>投稿用制作</div>
             <div className={styles.cell}>
-              <strong>4本／月</strong>
+              <strong className={styles.strong}>4本／月</strong>
             </div>
             <div className={styles.cell}>
-              <strong>8本／月</strong>
+              <strong className={styles.strong}>8本／月</strong>
             </div>
             <div className={styles.cell}>
-              <strong>12本／月</strong>
+              <strong className={styles.strong}>12本／月</strong>
             </div>
-
-            {/* Ad Video Row */}
+            {/* --- ROW: 広告用動画 --- */}
             <div className={styles.labelCell}>広告用動画</div>
             <div className={styles.cell}>
-              <strong>4本／月</strong>
+              <strong className={styles.strong}>4本／月</strong>
             </div>
             <div className={styles.cell}>
-              <strong>8本／月</strong>
-              <div className={styles.cellNote}>
+              <strong className={styles.strong}>8本／月</strong>
+              <div className={styles.note}>
                 （訴求2軸×各4本などで検証量を確保）
               </div>
             </div>
             <div className={styles.cell}>
-              <strong>16本／月</strong>
-              <div className={styles.cellNote}>
+              <strong className={styles.strong}>16本／月</strong>
+              <div className={styles.note}>
                 （AB前提：フック／訴求／オファー差分を回す）
               </div>
             </div>
-
-            {/* Ad Operation Row */}
+            {/* --- ROW: 広告運用 --- */}
             <div className={styles.labelCell}>広告運用</div>
             <div className={styles.cell}>1媒体</div>
             <div className={styles.cell}>2媒体まで</div>
             <div className={styles.cell}>最大3媒体</div>
-
-            {/* Shooting Row */}
+            {/* --- ROW: 撮影(大阪) --- */}
             <div className={styles.labelCell}>撮影(大阪)</div>
             <div className={styles.cell}>月1回込み</div>
             <div className={styles.cell}>月2回込み</div>
             <div className={styles.cell}>
               月4回込み
-              <div className={styles.cellNote}>（週1目安）</div>
+              <div className={styles.note}>（週1目安）</div>
             </div>
-
-            {/* Regular Meeting Row */}
+            {/* --- ROW: 定例 --- */}
             <div className={styles.labelCell}>定例</div>
             <div className={styles.cell}>月1＋月次レポート</div>
             <div className={styles.cell}>
-              隔週(月2)＋改善サマリー＋月次レポート
+              隔週(月2)＋
+              <br />
+              改善サマリー＋月次レポート
             </div>
             <div className={styles.cell}>
-              週1＋週次改善サマリー＋月次レポート
+              週1＋
+              <br />
+              週次改善サマリー＋月次レポート
             </div>
-
-            {/* Details/Flow Row */}
+            {/* --- ROW: 特徴・導線設計 --- */}
             <div className={styles.labelCell}>特徴・導線設計</div>
-            <div className={`${styles.cell} ${styles.detailCell}`}>
+            <div className={`${styles.cell} ${styles.centerLeft}`}>
               <span className={styles.flowTitle}>
                 初期構築
                 <span className={styles.flowSub}>（初月で導線を決め切る）</span>
@@ -166,7 +147,7 @@ export default function Pricing() {
                 <li>LINE：自動返信＋簡易ヒアリング＋誘導</li>
               </ul>
             </div>
-            <div className={`${styles.cell} ${styles.detailCell}`}>
+            <div className={`${styles.cell} ${styles.centerLeft}`}>
               <span className={styles.flowTitle}>
                 導線
                 <span className={styles.flowSub}>
@@ -182,7 +163,7 @@ export default function Pricing() {
                 </li>
               </ul>
             </div>
-            <div className={`${styles.cell} ${styles.detailCell}`}>
+            <div className={`${styles.cell} ${styles.centerLeft}`}>
               <span className={styles.flowTitle}>
                 追加対応・導線
                 <span className={styles.flowSub}>（本格運用）</span>
@@ -197,31 +178,53 @@ export default function Pricing() {
                 </li>
               </ul>
             </div>
-
-            {/* CTA Buttons Row */}
+            {/* --- ROW: FOOTER (月額料金) --- */}
+            <div className={styles.labelCell}>月額料金</div>
+            <div
+              className={`${styles.headerCell} ${styles.miniHeader} ${styles.priceCell}`}
+            >
+              <div>
+                <span className={styles.priceVal}>15</span>
+                <span className={styles.priceUnit}>万円／月</span>
+              </div>
+            </div>
+            <div
+              className={`${styles.headerCell} ${styles.standardHeader} ${styles.priceCell}`}
+            >
+              <div>
+                <span className={styles.priceVal}>30</span>
+                <span className={styles.priceUnit}>万円／月</span>
+              </div>
+            </div>
+            <div
+              className={`${styles.headerCell} ${styles.premiumHeader} ${styles.priceCell}`}
+            >
+              <div>
+                <span className={styles.priceVal}>60</span>
+                <span className={styles.priceUnit}>万円〜／月</span>
+              </div>
+            </div>
+            {/* --- ROW: BUTTONS --- */}
             <div className={styles.labelCell}></div>
-            <div className={styles.buttonCell}>
-              <Link
-                href="/contact?plan=start"
-                className={`${styles.ctaButton} ${styles.mini}`}
-              >
-                ミニプランで相談
+            <div
+              className={`${styles.cell} ${styles.buttonCell} ${styles.mini}`}
+            >
+              <Link href="/contact?plan=start" className={styles.ctaButton}>
+                相談する
               </Link>
             </div>
-            <div className={styles.buttonCell}>
-              <Link
-                href="/contact?plan=standard"
-                className={`${styles.ctaButton} ${styles.standard}`}
-              >
-                スタンダードで相談
+            <div
+              className={`${styles.cell} ${styles.buttonCell} ${styles.standard}`}
+            >
+              <Link href="/contact?plan=standard" className={styles.ctaButton}>
+                相談する
               </Link>
             </div>
-            <div className={styles.buttonCell}>
-              <Link
-                href="/contact?plan=growth"
-                className={`${styles.ctaButton} ${styles.premium}`}
-              >
-                プレミアムで相談
+            <div
+              className={`${styles.cell} ${styles.buttonCell} ${styles.premium}`}
+            >
+              <Link href="/contact?plan=growth" className={styles.ctaButton}>
+                相談する
               </Link>
             </div>
           </div>

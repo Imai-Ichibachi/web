@@ -21,12 +21,13 @@ export default function Home() {
       <Hero />
       <LogoCarousel />
       <AboutMadeit />
-      <ProgressExample />
+
       <ServiceIntro />
       <Features />
 
       <Achievements />
       {/* <Reviews /> */}
+      <ProgressExample />
       <Pricing />
       <FAQ />
       <Footer />

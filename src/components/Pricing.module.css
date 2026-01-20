@@ -1,6 +1,9 @@
+/* Pricing.module.css */
+
 .section {
     padding: 100px 5%;
-    background: transparent;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -9,75 +12,64 @@
     margin: 0 auto;
 }
 
-.label {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent-magenta);
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
 .title {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 900;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     color: var(--primary);
 }
 
 /* Common Conditions */
 .commonConditions {
-    margin-bottom: 60px;
+    margin-bottom: 48px;
     text-align: center;
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    display: inline-block;
 }
 
 .commonTitle {
     font-size: 18px;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 24px;
-    display: inline-block;
+    margin-bottom: 16px;
     border-bottom: 2px solid var(--primary);
+    display: inline-block;
     padding-bottom: 4px;
 }
 
 .commonList {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
     list-style: none;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .commonItem {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 15px;
+    gap: 8px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-main);
-    text-align: left;
 }
 
 .commonIcon {
-    width: 32px;
-    height: 32px;
-    background: var(--primary);
-    color: white;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    color: var(--primary);
 }
 
 .commonNote {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     font-weight: 500;
+    display: block;
+    margin-top: 4px;
 }
 
-/* Pricing Table */
+/* Table */
 .tableWrapper {
     width: 100%;
     overflow-x: auto;
@@ -85,295 +77,243 @@
     padding-bottom: 20px;
 }
 
-.pricingTable {
+.pricingGrid {
     display: grid;
-    grid-template-columns: 200px 1fr 1fr 1fr;
-    min-width: 1000px;
-    border-top: 2px solid #e2e8f0;
-    text-align: left;
+    /* 4 columns: Label, Mini, Standard, Premium */
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    gap: 6px;
+    background-color: #f0f9ff;
+    /* Gap color (light blue) */
+    border: 6px solid #f0f9ff;
+    border-radius: 8px;
+    min-width: 900px;
+    /* Ensure layout on mobile */
 }
 
 /* Cells */
-.cell,
-.headerCell,
-.labelCell,
-.buttonCell {
-    padding: 24px;
-    border-bottom: 1px solid #e2e8f0;
-    border-right: 1px solid #e2e8f0;
+.cell {
+    background-color: #ffffff;
+    padding: 24px 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.cell:last-child,
-.headerCell:last-child,
-.buttonCell:last-child {
-    border-right: none;
-}
-
-/* Label Column */
-.labelCell {
-    background: #f8fafc;
-    font-weight: 700;
-    color: var(--text-muted);
-    font-size: 14px;
-    border-right: 1px solid #e2e8f0;
-}
-
-/* Header Cells */
-.headerCell {
+    align-items: center;
     text-align: center;
-    background: #fff;
-    border-top: 4px solid transparent;
-    /* Colored top border */
-}
-
-.headerCell.mini {
-    border-top-color: #fbbf24;
-}
-
-.headerCell.standard {
-    border-top-color: #0ea5e9;
-}
-
-.headerCell.premium {
-    border-top-color: #f43f5e;
-}
-
-.planName {
-    font-size: 24px;
-    font-weight: 900;
-    margin-bottom: 8px;
-}
-
-.headerCell.mini .planName {
-    color: #b45309;
-}
-
-.headerCell.standard .planName {
-    color: #0369a1;
-}
-
-.headerCell.premium .planName {
-    color: #be123c;
-}
-
-/* Price Cells */
-.priceCell {
-    text-align: center;
-    background: #fff;
-}
-
-.priceVal {
-    font-size: 40px;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.priceUnit {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-muted);
-}
-
-.headerCell.mini .priceVal,
-.headerCell.mini .priceUnit {
-    color: #b45309;
-}
-
-.headerCell.standard .priceVal,
-.headerCell.standard .priceUnit {
-    color: #0369a1;
-}
-
-.headerCell.premium .priceVal,
-.headerCell.premium .priceUnit {
-    color: #be123c;
-}
-
-
-/* Regular Cells */
-.cell {
-    background: #fff;
     font-size: 15px;
     color: var(--text-main);
     line-height: 1.6;
-    text-align: center;
+}
+
+.labelCell {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: var(--text-main);
     align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+    justify-content: center;
 }
 
-.cell strong {
+.headerCell {
+    padding: 16px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     font-weight: 900;
+    border-radius: 4px 4px 0 0;
 }
 
-.cellNote {
-    font-size: 12px;
-    color: var(--text-muted);
+.planEn {
+    font-size: 20px;
+    font-family: var(--font-english);
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.planJa {
+    font-size: 13px;
     margin-top: 4px;
+    opacity: 0.9;
 }
 
-/* Flow/Detail Cells - aligned left */
-.detailCell {
+/* Header Colors */
+.miniHeader {
+    background-color: #fccc00;
+    color: #fff;
+}
+
+/* Yellow */
+.standardHeader {
+    background-color: #00a0e9;
+}
+
+/* Blue */
+.premiumHeader {
+    background-color: #e6005c;
+}
+
+/* Pink */
+
+/* Footer Price Row */
+.priceCell {
+    padding: 20px 8px;
+}
+
+.priceBadge {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.miniHeader .priceBadge {
+    color: #8a6a00;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.priceVal {
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0 4px;
+}
+
+.priceUnit {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Cell Variations */
+.centerLeft {
     text-align: left;
     align-items: flex-start;
 }
 
-.flowTitle {
-    font-size: 15px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    display: block;
-}
-
-.flowSub {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-left: 5px;
-}
-
-.flowList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.flowList li {
-    font-size: 13px;
-    margin-bottom: 6px;
-    position: relative;
-    padding-left: 12px;
-}
-
-.flowList li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--text-muted);
-}
-
-/* CTA Buttons */
-.ctaButton {
-    display: inline-block;
-    width: 100%;
-    padding: 14px;
-    text-align: center;
+.strong {
     font-weight: 900;
-    text-decoration: none;
-    color: white;
-    transition: opacity 0.3s;
+    font-size: 16px;
 }
 
-.ctaButton:hover {
-    opacity: 0.8;
-}
-
-.ctaButton.mini {
-    background: #fbbf24;
-}
-
-.ctaButton.standard {
-    background: #0ea5e9;
-}
-
-.ctaButton.premium {
-    background: #f43f5e;
+.note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
 }
 
 .spOnly {
     display: none;
 }
 
-@media (max-width: 1024px) {
+/* Flow/Detail List */
+.flowList {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+    text-align: left;
+    width: 100%;
+}
+
+.flowList li {
+    font-size: 13px;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.5;
+}
+
+.flowList li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #cbd5e1;
+}
+
+.flowTitle {
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 4px;
+    text-align: left;
+    width: 100%;
+}
+
+.flowSub {
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+/* CTA Buttons */
+.ctaButton {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid currentColor;
+    transition: all 0.3s;
+}
+
+.buttonCell.mini .ctaButton {
+    color: #d97706;
+    border-color: #fcd34d;
+}
+
+.buttonCell.standard .ctaButton {
+    color: #0284c7;
+    border-color: #7dd3fc;
+}
+
+.buttonCell.premium .ctaButton {
+    color: #be123c;
+    border-color: #fda4af;
+}
+
+.ctaButton:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
     .section {
-        padding: 60px 0;
+        padding: 60px 5%;
     }
 
     .tableWrapper {
-        padding: 0 5% 20px 5%;
+        padding: 0;
     }
 
-    .pricingTable {
-        grid-template-columns: 140px repeat(3, minmax(200px, 1fr));
+    .spOnly {
+        display: block;
     }
 
     .commonList {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-        margin: 0 auto;
-        max-width: fit-content;
-        /* Center the list block */
+        padding: 0 16px;
     }
 
     .commonItem {
         width: 100%;
-        margin: 0;
         align-items: flex-start;
-        /* Align icon to top */
+        text-align: left;
     }
 
     .commonIcon {
-        margin-top: 2px;
-        /* Slight adjustment for text alignment */
+        margin-top: 3px;
+        flex-shrink: 0;
     }
 
     .commonTitle {
-        display: block;
-        text-align: center;
-    }
-
-    .spOnly {
-        display: inline;
-    }
-
-    /* Compact styles for mobile table */
-    .cell,
-    .headerCell,
-    .labelCell,
-    .buttonCell {
-        padding: 12px 8px;
-        /* Greatly reduced padding */
-    }
-
-    .planName {
-        font-size: 16px;
-        margin-bottom: 4px;
-    }
-
-    .priceVal {
-        font-size: 24px;
-    }
-
-    .priceUnit {
-        font-size: 11px;
-    }
-
-    .cell {
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    .labelCell {
-        font-size: 12px;
-        padding-left: 8px;
-    }
-
-    .flowTitle {
-        font-size: 13px;
-        margin-bottom: 4px;
-    }
-
-    .flowList li {
-        font-size: 11px;
-        margin-bottom: 2px;
-        line-height: 1.4;
-        padding-left: 8px;
-    }
-
-    .ctaButton {
-        padding: 10px;
-        font-size: 13px;
+        font-size: 15px;
     }
 }
