@@ -38,13 +38,13 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <Link href="/" className={styles.logo}>
-        <Image
-          src="/madeit_logo3.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/logo_main_new.png"
           alt="Madeit"
           width={180}
           height={40}
           className={styles.logoImg}
-          priority
         />
       </Link>
 
@@ -67,7 +67,10 @@ export default function Header() {
       </nav>
 
       <div className={styles.actions}>
-        <Link href={isHome ? "#contact" : "/#contact"} className={styles.buttonInquiry}>
+        <Link
+          href={isHome ? "#contact" : "/#contact"}
+          className={styles.buttonInquiry}
+        >
           お問い合わせ
         </Link>
         <Link href={getLink("contact")} className={styles.buttonDownload}>

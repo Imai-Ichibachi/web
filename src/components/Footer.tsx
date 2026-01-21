@@ -9,8 +9,9 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <Image
-              src="/madeit_logo3.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo_main_new.png"
               alt="Madeit"
               width={160}
               height={36}
