@@ -38,6 +38,7 @@ export default function ServiceIntro() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
+                    <p className={styles.label}>Why Madeit!</p>
                     <h2 className={styles.title}>Madeitが選ばれる理由</h2>
                     <p className={styles.text}>
                         大手代理店にはできない、きめ細やかなサポートと<br />

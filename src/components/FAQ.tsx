@@ -51,6 +51,7 @@ export default function FAQ() {
   return (
     <section className={styles.section} id="faq">
       <div className={styles.container}>
+        <p className={styles.label}>FAQ</p>
         <h2 className={styles.title}>よくある質問</h2>
         <div className={styles.grid}>
           {faqs.map((item, index) => (

@@ -1,0 +1,79 @@
+.wrapper {
+    margin-top: 80px;
+    padding-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.sectionTitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.en {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b82f6;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    font-family: var(--font-outfit), sans-serif;
+}
+
+.ja {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+        /* Desktop: 5 cols */
+        gap: 6px;
+    }
+}
+
+.logoItem {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    border-radius: 8px;
+    /* Requested radius on boxes */
+}
+
+.logoImg {
+    width: 60%;
+    /* Reduced from 100% to give space inside box */
+    height: auto;
+    max-height: 80px;
+    object-fit: contain;
+    opacity: 1;
+    /* Full color */
+    transition: transform 0.3s;
+}
+
+.logoItem:hover .logoImg {
+    transform: scale(1.1);
+}
+
+.note {
+    font-size: 11px;
+    color: #3a3a3a;
+    margin-top: 12px;
+    text-align: left;
+    display: block;
+}

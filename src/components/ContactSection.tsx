@@ -7,23 +7,28 @@ import Image from "next/image";
 
 function ContactForm() {
     const searchParams = useSearchParams();
-    const [plan, setPlan] = useState("");
+
+    // Initialize state from URL params to avoid cascading render
+    const [plan, setPlan] = useState(() => {
+        const p = searchParams.get("plan")?.toLowerCase();
+        if (p === "start" || p === "standard" || p === "growth") return p;
+        return "";
+    });
 
     useEffect(() => {
         const planParam = searchParams.get("plan");
         if (planParam) {
-            // Map param to value
             const p = planParam.toLowerCase();
-            if (p === "start") setPlan("start");
-            else if (p === "standard") setPlan("standard");
-            else if (p === "growth") setPlan("growth");
+            if (p === "start" || p === "standard" || p === "growth") {
+                setPlan((current) => (current !== p ? p : current));
+            }
         }
     }, [searchParams]);
 
     return (
         <form className={styles.form}>
             <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="plan">
+                <label className={styles.formLabel} htmlFor="plan">
                     ご相談プラン
                 </label>
                 <div className={styles.selectWrapper}>
@@ -41,7 +46,7 @@ function ContactForm() {
                 </div>
             </div>
             <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="name">
+                <label className={styles.formLabel} htmlFor="name">
                     お名前 <span style={{ color: "#ef4444" }}>*</span>
                 </label>
                 <input
@@ -53,7 +58,7 @@ function ContactForm() {
                 />
             </div>
             <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="company">
+                <label className={styles.formLabel} htmlFor="company">
                     会社名
                 </label>
                 <input
@@ -64,7 +69,7 @@ function ContactForm() {
                 />
             </div>
             <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="email">
+                <label className={styles.formLabel} htmlFor="email">
                     メールアドレス <span style={{ color: "#ef4444" }}>*</span>
                 </label>
                 <input
@@ -76,7 +81,7 @@ function ContactForm() {
                 />
             </div>
             <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="message">
+                <label className={styles.formLabel} htmlFor="message">
                     お問い合わせ内容 <span style={{ color: "#ef4444" }}>*</span>
                 </label>
                 <textarea
@@ -97,6 +102,7 @@ export default function ContactSection() {
     return (
         <section className={styles.section} id="contact">
             <div className={styles.container}>
+                <p className={styles.label}>Contact</p>
                 <h2 className={styles.heading}>お問い合わせ</h2>
                 <Suspense fallback={<div>Loading...</div>}>
                     <ContactForm />

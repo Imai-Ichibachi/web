@@ -13,7 +13,6 @@
     position: absolute;
     font-weight: 900;
     font-family: var(--font-noto-sans), sans-serif;
-    opacity: 0.5;
     line-height: 1;
     user-select: none;
 }

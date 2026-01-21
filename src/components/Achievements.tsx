@@ -3,6 +3,8 @@ import styles from "./Achievements.module.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import CompanyLogoList from "./CompanyLogoList";
+
 export default function Achievements() {
   const cases = [
     {
@@ -42,6 +44,7 @@ export default function Achievements() {
 
   return (
     <section className={styles.section} id="achievements">
+      <p className={styles.label}>Case</p>
       <h2 className={styles.title}>導入事例</h2>
       <div className={styles.grid}>
         {cases.map((item, index) => (
@@ -78,6 +81,9 @@ export default function Achievements() {
           </motion.div>
         ))}
       </div>
+
+
+      <CompanyLogoList />
     </section>
   );
 }

@@ -64,7 +64,7 @@ function ParallaxSymbol({
         y: y,
       }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 0.4 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       {data.number}%
@@ -81,28 +81,50 @@ export default function BackgroundDecorations() {
     // Client-side execution
     setWinHeight(window.innerHeight);
 
-    const count = 8;
+    // Increase total count for higher density at top
+    const count = 30;
     const newSymbols: FloatingSymbolData[] = [];
 
-    // Fixed X positions across full screen width
-    const xPositions = [10, 25, 40, 55, 70, 85, 15, 75];
+    // Limit where symbols stop appearing (pixel value)
+    // Approximate: Hero(800) + Logo(100) + Problems(800) + About(800) + ServiceIntro(800) + Features(Start)
+    // We want them to fade out/stop by Features section.
+    // Let's concentrate them in the first 2500px, heavily weighted to 0-1000px.
+
+    // Custom probability distribution: heavy at top, scarce at bottom
 
     for (let i = 0; i < count; i++) {
-      const depth = 0.3 + i * 0.1; // Consistent depth progression
+      // Weighted random Y: 
+      // Using a power function to bias towards 0. 
+      // Math.pow(Math.random(), 2) gives more small numbers (top heavy).
+      const r = Math.pow(Math.random(), 2);
+      const yPos = r * 3000 + 100; // Spread over 100px to 3100px
 
-      const x = xPositions[i % xPositions.length];
+      // Skip if too far down (security measure if logic matches "Features" start approx)
+      if (yPos > 3200) continue;
+
+      // Enforce alternating sides for balance
+      const isLeft = i % 2 === 0;
+
+      // Generate x within 2-20% (Left) or 78-98% (Right)
+      const x = isLeft
+        ? Math.random() * 18 + 2   // 2% to 20%
+        : Math.random() * 20 + 78; // 78% to 98%
 
       newSymbols.push({
         id: i,
         x: x,
-        initialY: 100 + i * 300, // Spread out vertically (300px apart)
-        size: 80 + (i % 3) * 40, // Varied sizes: 80, 120, 160
-        rotation: (i * 45) % 360,
+        initialY: yPos,
+        size: 60 + Math.random() * 120, // Random size 60-180
+        rotation: Math.random() * 360,
         color: colors[i % 4],
-        number: 30 + i * 10,
-        depth,
+        number: 10 + Math.floor(Math.random() * 90), // Random % number
+        depth: 0.2 + Math.random() * 0.6, // Random depth
       });
     }
+
+    // Sort by Y so they render in somewhat order (optional but nice)
+    newSymbols.sort((a, b) => a.initialY - b.initialY);
+
     setSymbols(newSymbols);
 
     // Handle resize

@@ -9,6 +9,15 @@
     margin: 0 auto;
 }
 
+.label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-magenta);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
 .heading {
     text-align: center;
     font-size: 32px;
@@ -30,7 +39,7 @@
     margin-bottom: 24px;
 }
 
-.label {
+.formLabel {
     display: block;
     margin-bottom: 8px;
     font-weight: 700;

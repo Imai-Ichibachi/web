@@ -7,6 +7,7 @@ export default function Pricing() {
   return (
     <section className={styles.section} id="pricing">
       <div className={styles.container}>
+        <p className={styles.label}>Price</p>
         <h2 className={styles.title}>料金体系</h2>
 
         {/* Common Conditions */}
