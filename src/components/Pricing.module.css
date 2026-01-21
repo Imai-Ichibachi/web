@@ -113,6 +113,17 @@
 }
 
 .labelCell {
+    background-color: #ffffff;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+    justify-content: center;
+}
+
+.labelCellTransparent {
     background-color: transparent;
     font-weight: 700;
     color: var(--text-main);

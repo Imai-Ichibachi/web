@@ -206,7 +206,7 @@ export default function Pricing() {
               </div>
             </div>
             {/* --- ROW: BUTTONS --- */}
-            <div className={styles.labelCell}></div>
+            <div className={styles.labelCellTransparent}></div>
             <div
               className={`${styles.cell} ${styles.buttonCell} ${styles.mini}`}
             >
