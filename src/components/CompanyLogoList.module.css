@@ -51,8 +51,7 @@
     align-items: center;
     justify-content: center;
     height: 120px;
-    border-radius: 8px;
-    /* Requested radius on boxes */
+    border-radius: 0;
 }
 
 .logoImg {
@@ -67,7 +66,7 @@
 }
 
 .logoItem:hover .logoImg {
-    transform: scale(1.1);
+    transform: none;
 }
 
 .note {
