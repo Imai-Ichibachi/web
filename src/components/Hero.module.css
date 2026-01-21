@@ -148,34 +148,41 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 100px 5% 60px;
+        padding: 70px 5% 0px;
         min-height: auto;
     }
 
+    .container {
+        gap: 10px;
+    }
+
     .content {
-        margin-bottom: 60px;
+        margin-bottom: 30px;
     }
 
     .heading {
-        font-size: 32px;
+        font-size: 24px;
+        margin-bottom: 12px;
     }
 
     .description {
-        font-size: 16px;
-        margin-bottom: 36px;
+        font-size: 13px;
+        margin-bottom: 16px;
     }
 
     .buttonMain {
-        padding: 16px 36px;
-        font-size: 16px;
+        padding: 14px 32px;
+        font-size: 14px;
     }
 
     .visualArea {
-        min-height: 300px;
+        min-height: auto;
+        margin-bottom: 10px;
     }
 
     .mockupContainer {
-        max-width: 500px;
+        max-width: 100%;
+        margin-bottom: 0px;
     }
 }
 

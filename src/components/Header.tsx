@@ -38,13 +38,13 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <Link href="/" className={styles.logo}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/logo_main_new.png"
+        <Image
+          src="/madeit_logo3.png"
           alt="Madeit"
           width={180}
           height={40}
           className={styles.logoImg}
+          priority
         />
       </Link>
 

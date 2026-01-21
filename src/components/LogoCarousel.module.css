@@ -49,3 +49,34 @@
         transform: translateX(-50%);
     }
 }
+
+@media (max-width: 768px) {
+    .carousel {
+        animation: none;
+        width: 100%;
+        display: block;
+        padding: 0 20px;
+    }
+
+    .slide {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 12px;
+        width: 100%;
+    }
+
+    .slide:nth-child(2) {
+        display: none;
+    }
+
+    .logoImg {
+        width: 100%;
+        height: auto;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .logoImg:hover {
+        opacity: 1;
+    }
+}
