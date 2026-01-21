@@ -45,6 +45,26 @@
     display: block;
 }
 
+.descriptionTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-main);
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: keep-all;
+}
+
+.descriptionText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    white-space: pre-wrap;
+    word-break: keep-all;
+}
+
+
 @media (max-width: 768px) {
     .section {
         padding: 60px 4%;
@@ -58,6 +78,7 @@
     .title {
         font-size: 28px;
         margin-bottom: 24px;
+        word-break: keep-all;
     }
 
     .subtitle {
@@ -67,6 +88,16 @@
     .planName {
         font-size: 14px;
         margin-bottom: 24px;
+    }
+
+    .descriptionTitle {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .descriptionText {
+        font-size: 14px;
+        margin-bottom: 30px;
     }
 
     .imageWrapper {
