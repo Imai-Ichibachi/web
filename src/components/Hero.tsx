@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.buttonGroup}>
-            <Link href="/contact" className={styles.buttonMain}>
+            <Link href="#contact" className={styles.buttonMain}>
               無料で相談する <ArrowRight size={20} />
             </Link>
           </div>

@@ -70,7 +70,9 @@ export default function Header() {
         <Link href={isHome ? "#contact" : "/#contact"} className={styles.buttonInquiry}>
           お問い合わせ
         </Link>
-        <button className={styles.buttonDownload}>無料で相談する</button>
+        <Link href={getLink("contact")} className={styles.buttonDownload}>
+          無料で相談する
+        </Link>
       </div>
 
       <button
@@ -151,7 +153,11 @@ export default function Header() {
               </nav>
 
               <div className={styles.mobileActions}>
-                <button className={styles.mobileButtonDownload}>
+                <Link
+                  href={getLink("contact")}
+                  className={styles.mobileButtonDownload}
+                  onClick={closeMenu}
+                >
                   無料で相談する
                   <svg
                     width="16"
@@ -165,7 +171,7 @@ export default function Header() {
                       fill="#031430"
                     />
                   </svg>
-                </button>
+                </Link>
                 <Link
                   href={isHome ? "#contact" : "/#contact"}
                   className={styles.mobileButtonInquiry}
