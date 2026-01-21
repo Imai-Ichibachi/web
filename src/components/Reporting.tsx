@@ -36,14 +36,14 @@ export default function Reporting() {
               >
                 <div className={styles.imageWrapper}>
                   <Image
-                    src="/images/01sub_ex1.png"
+                    src="/report_summary_new.png"
                     alt="Graph Analysis"
                     fill
                     style={{ objectFit: "contain" }}
                   />
                 </div>
               </motion.div>
-              <p className={styles.caption}>成果全体サマリー</p>
+              <p className={styles.caption}>月別広告効果サマリー</p>
             </div>
 
             {/* Image B: Table */}
@@ -57,14 +57,14 @@ export default function Reporting() {
               >
                 <div className={styles.imageWrapper}>
                   <Image
-                    src="/images/01sub_ex2.png"
+                    src="/report_detail_new.png"
                     alt="Data Table"
                     fill
                     style={{ objectFit: "contain" }}
                   />
                 </div>
               </motion.div>
-              <p className={styles.caption}>個別数値レポート</p>
+              <p className={styles.caption}>月別数値レポート</p>
             </div>
           </div>
         </div>
