@@ -38,13 +38,10 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <Link href="/" className={styles.logo}>
-        <Image
-          src="/madeit_logo3.png"
+        <img
+          src="/madeit_logo_new.png"
           alt="Madeit"
-          width={180}
-          height={40}
           className={styles.logoImg}
-          priority
         />
       </Link>
 
