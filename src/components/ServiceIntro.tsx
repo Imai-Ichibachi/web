@@ -8,46 +8,26 @@ export default function ServiceIntro() {
     const cards = [
         {
             num: "01",
-            title: "SNSを“入口”として設計",
+            title: "SNS×広告の売上導線に特化",
             link: "#step1",
             color: "#ff5858",
             image: "/images/feature_analysis.png"
         },
         {
             num: "02",
-            title: "広告×SNS×制作×LP\n一体運用",
+            title: "クリエイティブ制作から広告運用まで\n弊社が一括サポート",
             link: "#step2",
             color: "#ffe358",
             image: "/images/feature_creative.png"
         },
         {
             num: "03",
-            title: "提案で終わらず\n実装まで回し切る",
+            title: "『再生数』で終わらせず\n『問い合わせ/売上』まで\nとことん追求",
             link: "#step3",
             color: "#58dbff",
             image: "/images/feature_growth.png"
         },
-        {
-            num: "04",
-            title: "データで改善し\n成果に寄せる",
-            link: "#step4",
-            color: "#58ff5e",
-            image: "/images/feature_growth.png" // Reusing
-        },
-        {
-            num: "05",
-            title: "制作力×運用力で\n成果を落とさない",
-            link: "#step5",
-            color: "#a855f7",
-            image: "/images/feature_creative.png" // Reusing
-        },
-        {
-            num: "06",
-            title: "DATA DRIVEN\n感覚に頼らない、\n確かなデータ分析",
-            link: "#step6",
-            color: "#ff9f58",
-            image: "/images/feature_analysis.png"
-        }
+
     ];
 
     return (

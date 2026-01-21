@@ -67,7 +67,7 @@ export default function Header() {
       </nav>
 
       <div className={styles.actions}>
-        <Link href="/contact" className={styles.buttonInquiry}>
+        <Link href={isHome ? "#contact" : "/#contact"} className={styles.buttonInquiry}>
           お問い合わせ
         </Link>
         <button className={styles.buttonDownload}>無料で相談する</button>
@@ -167,7 +167,7 @@ export default function Header() {
                   </svg>
                 </button>
                 <Link
-                  href="/contact"
+                  href={isHome ? "#contact" : "/#contact"}
                   className={styles.mobileButtonInquiry}
                   onClick={closeMenu}
                 >

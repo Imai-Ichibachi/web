@@ -1,0 +1,106 @@
+.section {
+    padding: 0px 40px;
+    /* background removed */
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header with Check Icon */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Left aligned */
+    gap: 16px;
+    margin-bottom: 50px;
+}
+
+.checkIcon {
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+    /* Dark color as requested */
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+    /* Remove default margin */
+}
+
+/* Flat Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    /* Generous gap as requested */
+}
+
+/* Flat Item (Not Card) */
+.item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    /* No background, no border, no shadow */
+}
+
+.icon {
+    font-size: 40px;
+    color: var(--accent-magenta);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.5;
+}
+
+.cardText {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        /* Stack vertically on SP */
+        gap: 40px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+.highlight {
+    color: #E6005C;
+    /* Magenta Red */
+    font-size: 1.3em;
+    font-weight: 1000;
+}
+
+.highlightsub {
+    font-size: 1.3em;
+    font-weight: 1000;
+}

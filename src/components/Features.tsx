@@ -2,102 +2,174 @@
 import styles from "./Features.module.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Reporting from "./Reporting";
+import OtherFeatures from "./OtherFeatures";
 
 export default function Features() {
-  const steps = [
-    {
-      id: "step1",
-      num: "01",
-      title: "SNSを“入口”として設計し、売上まで繋げる",
-      desc: "SNSはバズのためではなく、成約に繋げるための入口。\nKPIを再生数ではなく、問い合わせ数／予約数／売上に寄せて運用します。",
-      image: "/images/feature_analysis.png",
-      color: "#ff5858",
-    },
-    {
-      id: "step2",
-      num: "02",
-      title: "広告×SNS×制作×LPを“一体運用”できる",
-      desc: "分業だと改善が止まりがち。\nMadeitは広告・SNS・クリエイティブ・LPを同じチームで回し、改善速度を最大化します。",
-      image: "/images/feature_creative.png",
-      color: "#ffe358",
-    },
-    {
-      id: "step3",
-      num: "03",
-      title: "提案で終わらず、「実装」まで回し切る",
-      desc: "提案書は立派でも、現場が回らないと成果は出ません。\nMadeitは制作も運用も改善も、実行を前提に最後まで完了させます。",
-      image: "/images/feature_growth.png",
-      color: "#58dbff",
-    },
-    {
-      id: "step4",
-      num: "04",
-      title: "クリエイティブを“スタート地点”にして、データで勝ちに寄せる",
-      desc: "動画やLPは作って終わりではありません。\n反応データを見て、訴求・構成・CTA・導線を継続改善し、成果が出る形に寄せ続けます。",
-      image: "/images/feature_growth.png", // Reusing image as per plan
-      color: "#58ff5e",
-    },
-    {
-      id: "step5",
-      num: "05",
-      title: "制作力と運用力が両方強い（成果まで落ちない）",
-      desc: "「良い動画だけど売れない」「運用は回すが素材が弱い」を起こしません。\n制作体制と運用設計が揃っているから、成果に直結します。",
-      image: "/images/feature_creative.png", // Reusing image as per plan
-      color: "#a855f7",
-    },
-    {
-      id: "step6",
-      num: "06",
-      title: "DATA DRIVEN",
-      desc: "感覚や経験だけに頼らず、広告・SNS・LP・導線の各データを定点観測。\n反応が出た要素は伸ばし、弱い要素は切り替えることで、\n“勝ちパターン”を最短で見つけて成果に寄せます。",
-      image: "/images/feature_analysis.png",
-      color: "#ff9f58",
-    },
-  ];
-
   return (
     <section className={styles.section} id="features-detail">
       <div className={styles.container}>
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            id={step.id}
-            className={styles.step}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            style={{ scrollMarginTop: "100px" }}
-          >
+        {/* BLOCK B: Step 01 (Text Left / Image Right) */}
+        <motion.div
+          id="step1"
+          className={styles.step}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ scrollMarginTop: "100px" }}
+        >
+          <div className={styles.content}>
+            <div className={styles.number} style={{ color: "#ff5858", opacity: 1 }}>01</div>
+            <h3 className={styles.title}>
+              STEP 01
+              <span className={styles.titleMain}>SNS×広告の売上導線に特化</span>
+            </h3>
+            <p className={styles.description} style={{ whiteSpace: "pre-line" }}>
+              お客様の目的・業種・市場規模などに合わせた、SNSの選定とターゲティング設定。
+              広告をお金をかけて露出を増やすだけのツールから、
+              売上・集客に直結する営業マンへと昇華させます。
+              圧倒的な顧客理解によるデータ分析とABテストによって成功確率の高い広告運用を実現しています。
+            </p>
+          </div>
+          <div className={styles.visual}>
+            {/* White card wrapper for PC Mock */}
+            <div className={styles.imageCard}>
+              <Image
+                src="/images/01ex.png"
+                alt="PC Mock"
+                fill
+                style={{ objectFit: "contain", padding: "0" }}
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* BLOCK C: Reporting */}
+      <Reporting />
+
+      <div className={styles.container} style={{ marginTop: "0" }}> {/* Removed margin top 100px as separator handles spacing */}
+
+        {/* Separator before Step 02 */}
+        <hr className={styles.separator} />
+
+        {/* BLOCK D: Step 02 (Text Left / Image Right) */}
+        {/* BLOCK D: Step 02 (Text Left / Image Right) + Bottom Flow */}
+        <motion.div
+          id="step2"
+          className={styles.stepContainer} /* Changed from step to stepContainer */
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ scrollMarginTop: "100px" }}
+        >
+          {/* Top Section: Existing 4:6 Grid */}
+          <div className={styles.step} style={{ marginBottom: 0 }}> {/* Remove bottom margin here, handled by gap or margin-top of bottom section */}
             <div className={styles.content}>
-              <div
-                className={styles.number}
-                style={{ color: step.color, opacity: 1 }}
-              >
-                {step.num}
-              </div>
+              <div className={styles.number} style={{ color: "#ffe358", opacity: 1 }}>02</div>
               <h3 className={styles.title}>
-                STEP {step.num}
-                <span className={styles.titleMain}>{step.title}</span>
+                STEP 02
+                <span className={styles.titleMain}>クリエイティブ制作から広告運用まで弊社が一括サポート</span>
               </h3>
-              <p
-                className={styles.description}
-                style={{ whiteSpace: "pre-line" }}
-              >
-                {step.desc}
+              <p className={styles.description} style={{ whiteSpace: "pre-line" }}>
+                広告運用において、クリエイティブというのは非常に重要なピースの1つです。
+                PR動画、広告動画、エンタメ動画、ショートドラマなど...
+                お客様のビジネスに合わせた最も効果的な動画ジャンルをご提案いたします。
+                それを実現可能にしているのが弊社の100名以上の動画制作プロ集団です。
+                内製化された編集のプロ集団だからこそ、
+                お客様の想いや強みをダイレクトに訴求できるクリエイティブを制作可能です。
               </p>
             </div>
             <div className={styles.visual}>
+              {/* White card wrapper for Phone Before/After */}
+              <div className={styles.imageCard}>
+                <Image
+                  src="/images/02ex.png"
+                  alt="Phone Before After"
+                  fill
+                  style={{ objectFit: "contain", padding: "0" }}
+                />
+                {/* Overlay Number if needed, leaving as flat image for now per "placeholder" instruction */}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section: Progress Flow */}
+          <div className={styles.stepBottom}>
+            <div className={styles.bottomContent}>
+              <h4 className={styles.bottomTitle}>導線全体の設計〜改善までを、最短で回す</h4>
+              <p className={styles.bottomText}>
+                ヒアリング → 導線設計 → 撮影・編集 → 投稿・配信 → 効果測定までを一気通貫で運用。<br />配信後の結果は即座に改善へ反映し、勝ちパターンを高速で作ります。
+              </p>
+            </div>
+            <div className={styles.bottomVisual}>
               <Image
-                src={step.image}
-                alt={step.title}
-                fill
-                style={{ objectFit: "contain", padding: "20px" }}
+                src="/progress_flow_v4.png"
+                alt="Progress Flow"
+                width={1024}
+                height={352}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  background: "transparent",
+                  border: "none",
+                  boxShadow: "none",
+                  borderRadius: "0",
+                  display: "block"
+                }}
               />
             </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+          </div>
+        </motion.div>
+
+        {/* Separator before Step 03 */}
+        <hr className={styles.separator} />
+
+        {/* BLOCK E: Step 03 (Text Left / Image Right) */}
+        <motion.div
+          id="step3"
+          className={styles.step}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ scrollMarginTop: "100px" }}
+        >
+          <div className={styles.content}>
+            <div className={styles.number} style={{ color: "#58dbff", opacity: 1 }}>03</div>
+            <h3 className={styles.title}>
+              STEP 03
+              <span className={styles.titleMain}>『再生数』で終わらせず『問い合わせ/売上』までをとことん追求</span>
+            </h3>
+            <p className={styles.description} style={{ whiteSpace: "pre-line" }}>
+              多くのSNS運用代行サービスは、動画の再生数をゴールとしています。
+              しかし、その『再生数』こそがあなたのビジネスの成長を阻む罠だとしたら...?
+              SNSで最も重要なのは正しいターゲットへコンテンツを届けることです。
+              再生数のみをゴールとしていた場合、気づかぬうちに間違った方向へ進んでしまう場合があります。
+              Madeitでは『問い合わせ/売上』をゴールにすることで、
+              常に正しい方向へとお客様のビジネスを導くことができます。
+            </p>
+          </div>
+          <div className={styles.visual}>
+            {/* Existing image logic */}
+            <div className={styles.imageCard} style={{ border: "none", background: "none", boxShadow: "none" }}>
+              <Image
+                src="/images/feature_growth.png"
+                alt="Feature Growth"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
+        </motion.div>
+        {/* Separator before Other Features */}
+        <hr className={styles.separator} />
+      </div >
+
+      {/* BLOCK F: Other Features */}
+      <OtherFeatures />
+    </section >
   );
 }

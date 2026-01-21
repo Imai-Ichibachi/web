@@ -10,9 +10,11 @@ export default function ProgressExample() {
         <p className={styles.planName}>(スタンダードプラン)</p>
 
         <div className={styles.imageWrapper}>
-          <img
+          <Image
             src="/progress_flow_v4.png"
             alt="進行例：店舗の集客を増やしたい場合（スタンダードプラン）"
+            width={1024}
+            height={352}
             className={styles.image}
           />
         </div>

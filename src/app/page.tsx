@@ -3,7 +3,6 @@ import styles from "./page.module.css";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Problems from "@/components/Problems";
-import ProgressExample from "@/components/ProgressExample";
 import ServiceIntro from "@/components/ServiceIntro";
 import AboutMadeit from "@/components/AboutMadeit";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -14,6 +13,7 @@ import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -29,9 +29,9 @@ export default function Home() {
 
       <Achievements />
       {/* <Reviews /> */}
-      <ProgressExample />
       <Pricing />
       <FAQ />
+      <ContactSection />
       <Footer />
     </div>
   );

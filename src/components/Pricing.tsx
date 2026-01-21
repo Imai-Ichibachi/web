@@ -209,21 +209,21 @@ export default function Pricing() {
             <div
               className={`${styles.cell} ${styles.buttonCell} ${styles.mini}`}
             >
-              <Link href="/contact?plan=start" className={styles.ctaButton}>
+              <Link href="/?plan=start#contact" className={styles.ctaButton}>
                 相談する
               </Link>
             </div>
             <div
               className={`${styles.cell} ${styles.buttonCell} ${styles.standard}`}
             >
-              <Link href="/contact?plan=standard" className={styles.ctaButton}>
+              <Link href="/?plan=standard#contact" className={styles.ctaButton}>
                 相談する
               </Link>
             </div>
             <div
               className={`${styles.cell} ${styles.buttonCell} ${styles.premium}`}
             >
-              <Link href="/contact?plan=growth" className={styles.ctaButton}>
+              <Link href="/?plan=growth#contact" className={styles.ctaButton}>
                 相談する
               </Link>
             </div>

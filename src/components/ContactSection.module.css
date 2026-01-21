@@ -1,8 +1,12 @@
+.section {
+    padding: 100px 40px;
+    background-color: transparent;
+}
+
 .container {
-    padding: 120px 5% 60px;
+    padding: 0;
     max-width: 800px;
     margin: 0 auto;
-    min-height: 100vh;
 }
 
 .heading {
@@ -11,11 +15,12 @@
     font-weight: 800;
     margin-bottom: 40px;
     color: #1e293b;
+    font-family: var(--font-noto-sans), sans-serif;
 }
 
 .form {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 40px;
+    background: #ffffff;
+    padding: 60px;
     border-radius: 0;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); removed */
     border: 1px solid #e2e8f0;
@@ -79,4 +84,19 @@
 .submitButton:hover {
     transform: translateY(-2px);
     /* box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); removed */
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 4%;
+    }
+
+    .form {
+        padding: 30px 20px;
+    }
+
+    .heading {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
 }
