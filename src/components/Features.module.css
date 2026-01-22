@@ -107,26 +107,20 @@
 }
 
 @media (max-width: 900px) {
+    .section {
+        padding: 60px 20px;
+    }
+
     .step {
         grid-template-columns: 1fr;
-        gap: 40px;
-        margin-bottom: 80px;
+        gap: 32px;
+        margin-bottom: 60px;
     }
 
     .reverse {
         grid-template-columns: 1fr;
-        /* Stack normally on mobile */
     }
 
-    /* Standard stacking order is defined by DOM. 
-       Step 1 (DOM: Content, Visual) -> Content Top, Visual Bottom.
-       Step 2 (DOM: Visual, Content) -> Visual Top, Content Bottom.
-       User said: "Display order maintain existing rules (Text -> Image etc)".
-       Wait, Step 2 DOM is Visual first. If Grid 1fr, Visual is on top.
-       Features.tsx for Step 2 has Visual first in DOM.
-       If user wants Text -> Image on Mobile involving Step 2, I need to swap order in mobile.
-       Grid can do this with `order`.
-    */
     .step .content {
         order: 1;
     }
@@ -135,31 +129,41 @@
         order: 2;
     }
 
-    /* This forces Content first, Visual second for ALL steps in mobile */
-
     .number {
-        font-size: 60px;
+        font-size: 50px;
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 16px;
     }
 
     .titleMain {
-        font-size: 24px;
+        font-size: 22px;
+        margin-top: 4px;
+    }
+
+    .description {
+        font-size: 15px;
     }
 
     .visual {
-        height: 300px;
-        /* specific height for mobile */
+        height: auto;
+        aspect-ratio: 16 / 9;
+        /* Let existing width:100% handle resizing */
     }
 
     /* Step Bottom Responsive */
     .stepBottom {
         flex-direction: column;
-        gap: 30px;
+        gap: 24px;
+        margin-top: 40px;
     }
 
     .bottomContent,
     .bottomVisual {
         flex: auto;
-        /* Reset flex */
         width: 100%;
     }
 
