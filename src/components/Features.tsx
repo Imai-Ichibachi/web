@@ -22,7 +22,7 @@ export default function Features() {
           <div className={styles.content}>
             <div
               className={styles.number}
-              style={{ color: "#ff5858", opacity: 1 }}
+              style={{ color: "#E21E47", opacity: 1 }}
             >
               01
             </div>
@@ -43,11 +43,10 @@ export default function Features() {
           <div className={styles.visual}>
             {/* White card wrapper for PC Mock */}
             <div className={styles.imageCard}>
-              <Image
-                src="/images/01ex.png"
+              <img
+                src="/pc_mock_v4.png"
                 alt="PC Mock"
-                fill
-                style={{ objectFit: "contain", padding: "0" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
               />
             </div>
           </div>
@@ -82,7 +81,7 @@ export default function Features() {
             <div className={styles.content}>
               <div
                 className={styles.number}
-                style={{ color: "#ffe358", opacity: 1 }}
+                style={{ color: "#E2B21F", opacity: 1 }}
               >
                 02
               </div>
@@ -165,7 +164,7 @@ export default function Features() {
           <div className={styles.content}>
             <div
               className={styles.number}
-              style={{ color: "#58dbff", opacity: 1 }}
+              style={{ color: "#1F41E2", opacity: 1 }}
             >
               03
             </div>
