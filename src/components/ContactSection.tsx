@@ -12,7 +12,7 @@ function ContactForm() {
   // Initialize state from URL params to avoid cascading render
   const [plan, setPlan] = useState(() => {
     const p = searchParams.get("plan")?.toLowerCase();
-    if (p === "start" || p === "standard" || p === "growth") return p;
+    if (p === "mini" || p === "premium" || p === "perfect") return p;
     return "";
   });
 
@@ -20,7 +20,7 @@ function ContactForm() {
     const planParam = searchParams.get("plan");
     if (planParam) {
       const p = planParam.toLowerCase();
-      if (p === "start" || p === "standard" || p === "growth") {
+      if (p === "mini" || p === "premium" || p === "perfect") {
         setPlan((current) => (current !== p ? p : current));
       }
     }
@@ -64,9 +64,9 @@ function ContactForm() {
             onChange={(e) => setPlan(e.target.value)}
           >
             <option value="">個別相談 / プラン未定</option>
-            <option value="start">ミニプラン</option>
-            <option value="standard">プレミアムプラン</option>
-            <option value="growth">パーフェクトプラン</option>
+            <option value="mini">ミニプラン</option>
+            <option value="premium">プレミアムプラン</option>
+            <option value="perfect">パーフェクトプラン</option>
           </select>
         </div>
       </div>
@@ -77,7 +77,7 @@ function ContactForm() {
         <input
           type="text"
           id="name"
-          name="user_name"
+          name="from_name"
           className={styles.input}
           required
           placeholder="山田 太郎"
@@ -102,10 +102,22 @@ function ContactForm() {
         <input
           type="email"
           id="email"
-          name="user_email"
+          name="from_email"
           className={styles.input}
           required
           placeholder="example@madeit.jp"
+        />
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.formLabel} htmlFor="phone">
+          電話番号
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          className={styles.input}
+          placeholder="03-1234-5678"
         />
       </div>
       <div className={styles.formGroup}>
