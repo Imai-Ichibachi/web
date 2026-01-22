@@ -11,10 +11,10 @@ export default function Problems() {
           <picture>
             <source
               media="(max-width: 768px)"
-              srcSet="/images/problems_sp.png"
+              srcSet="/images/problems_sp_new.png"
             />
             <img
-              src="/images/problems.png"
+              src="/problems_pc_new.png"
               alt="こんなお悩みありませんか？"
               className={styles.image}
             />
