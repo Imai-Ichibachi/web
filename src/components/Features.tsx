@@ -131,20 +131,10 @@ export default function Features() {
               </p>
             </div>
             <div className={styles.bottomVisual}>
-              <Image
+              <img
                 src="/progress_flow2.png"
                 alt="Progress Flow"
-                width={1024}
-                height={352}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  background: "transparent",
-                  border: "none",
-                  boxShadow: "none",
-                  borderRadius: "0",
-                  display: "block",
-                }}
+                className={styles.bottomVisualImage}
               />
             </div>
           </div>
