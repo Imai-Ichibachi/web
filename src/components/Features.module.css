@@ -161,10 +161,21 @@
         margin-top: 40px;
     }
 
-    .bottomContent,
     .bottomVisual {
         flex: auto;
         width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+        /* Space for scrollbar */
+    }
+
+    .bottomVisual img {
+        min-width: 800px;
+        /* Force scroll and larger height */
+        width: auto !important;
+        /* Override inline width="100%" */
+        height: auto;
     }
 
     .stepContainer {
