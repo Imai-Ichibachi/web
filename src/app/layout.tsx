@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google"; // Using Noto Sans JP for Japanese text
 
-import OpeningAnimation from "@/components/OpeningAnimation";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
@@ -26,8 +25,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSansJP.variable}`}>
-        <OpeningAnimation />
-
         <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
       </body>
     </html>

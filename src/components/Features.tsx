@@ -108,7 +108,7 @@ export default function Features() {
               {/* White card wrapper for Phone Before/After */}
               <div className={styles.imageCard}>
                 <Image
-                  src="/images/02ex.png"
+                  src="/phone_before_after_v2.png"
                   alt="Phone Before After"
                   fill
                   style={{ objectFit: "contain", padding: "0" }}
