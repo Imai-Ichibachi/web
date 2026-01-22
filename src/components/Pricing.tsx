@@ -57,12 +57,12 @@ export default function Pricing() {
               <span className={styles.planJa}>ミニプラン</span>
             </div>
             <div className={`${styles.headerCell} ${styles.standardHeader}`}>
-              <span className={styles.planEn}>STANDARD</span>
-              <span className={styles.planJa}>スタンダードプラン</span>
-            </div>
-            <div className={`${styles.headerCell} ${styles.premiumHeader}`}>
               <span className={styles.planEn}>PREMIUM</span>
               <span className={styles.planJa}>プレミアムプラン</span>
+            </div>
+            <div className={`${styles.headerCell} ${styles.premiumHeader}`}>
+              <span className={styles.planEn}>PERFECT</span>
+              <span className={styles.planJa}>パーフェクトプラン</span>
             </div>
             {/* --- ROW: 目的 --- */}
             <div className={styles.labelCell}>目的</div>
