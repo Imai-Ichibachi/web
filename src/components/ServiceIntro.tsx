@@ -18,7 +18,7 @@ export default function ServiceIntro() {
       title: "クリエイティブ制作から広告運用まで\n弊社が一括サポート",
       link: "#step2",
       color: "#ffe358",
-      image: "/images/feature_creative_support.jpg",
+      image: "/service_intro_02_new.jpg",
     },
     {
       num: "03",

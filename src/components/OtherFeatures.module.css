@@ -45,22 +45,41 @@
 /* Flat Item (Not Card) */
 .item {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 24px;
-    /* No background, no border, no shadow */
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    padding: 40px;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.item:hover {
+    transform: translateY(-5px);
 }
 
 .icon {
-    font-size: 40px;
     color: var(--accent-magenta);
     flex-shrink: 0;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(230, 0, 92, 0.05);
+    border-radius: 12px;
+    margin-bottom: 8px;
 }
 
 .content {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 12px;
 }
 
