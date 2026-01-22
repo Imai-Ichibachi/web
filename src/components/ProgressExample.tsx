@@ -21,7 +21,7 @@ export default function ProgressExample() {
 
         <div className={styles.imageWrapper}>
           <Image
-            src="/progress_flow.png"
+            src="/progress_flow2.png"
             unoptimized={true}
             alt="進行例：店舗の集客を増やしたい場合（プレミアムプラン）"
             width={1024}

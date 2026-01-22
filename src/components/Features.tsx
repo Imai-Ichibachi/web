@@ -133,7 +133,7 @@ export default function Features() {
             </div>
             <div className={styles.bottomVisual}>
               <Image
-                src="/progress_flow_v4.png"
+                src="/progress_flow2.png"
                 alt="Progress Flow"
                 width={1024}
                 height={352}
@@ -194,7 +194,7 @@ export default function Features() {
               style={{ border: "none", background: "none", boxShadow: "none" }}
             >
               <Image
-                src="/images/feature_growth.png"
+                src="/STEP03.jpg"
                 alt="Feature Growth"
                 fill
                 style={{ objectFit: "contain" }}
