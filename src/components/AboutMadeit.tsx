@@ -31,7 +31,7 @@ export default function AboutMadeit() {
           <picture>
             <source
               media="(max-width: 1024px)"
-              srcSet="/madeit-features-mobile.png"
+              srcSet="/about_madeit_mobile_new.png"
             />
             <img
               src="/madeit-features.png"
