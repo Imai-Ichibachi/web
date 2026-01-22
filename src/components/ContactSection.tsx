@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./ContactSection.module.css";
-import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 function ContactForm() {
   const searchParams = useSearchParams();
+  const form = useRef<HTMLFormElement>(null);
 
   // Initialize state from URL params to avoid cascading render
   const [plan, setPlan] = useState(() => {
@@ -25,8 +26,31 @@ function ContactForm() {
     }
   }, [searchParams]);
 
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (form.current) {
+      // Please replace with your actual EmailJS Service ID, Template ID, and Public Key
+      emailjs
+        .sendForm("service_madeit", "template_Madeit", form.current, {
+          publicKey: "NKAWi0SDilKHsSjjG",
+        })
+        .then(
+          () => {
+            alert("お問い合わせを送信しました。");
+            if (form.current) form.current.reset();
+            setPlan(""); // Reset plan selection if desired
+          },
+          (error) => {
+            console.error("FAILED...", error.text);
+            alert("送信に失敗しました。時間をおいて再度お試しください。");
+          }
+        );
+    }
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} ref={form} onSubmit={sendEmail}>
       <div className={styles.formGroup}>
         <label className={styles.formLabel} htmlFor="plan">
           ご相談プラン
@@ -34,6 +58,7 @@ function ContactForm() {
         <div className={styles.selectWrapper}>
           <select
             id="plan"
+            name="plan"
             className={styles.select}
             value={plan}
             onChange={(e) => setPlan(e.target.value)}
@@ -52,6 +77,7 @@ function ContactForm() {
         <input
           type="text"
           id="name"
+          name="user_name"
           className={styles.input}
           required
           placeholder="山田 太郎"
@@ -64,6 +90,7 @@ function ContactForm() {
         <input
           type="text"
           id="company"
+          name="company"
           className={styles.input}
           placeholder="株式会社Madeit"
         />
@@ -75,6 +102,7 @@ function ContactForm() {
         <input
           type="email"
           id="email"
+          name="user_email"
           className={styles.input}
           required
           placeholder="example@madeit.jp"
@@ -86,6 +114,7 @@ function ContactForm() {
         </label>
         <textarea
           id="message"
+          name="message"
           className={styles.textarea}
           required
           placeholder="ご相談内容をご記入ください"
