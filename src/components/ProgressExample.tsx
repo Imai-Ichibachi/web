@@ -7,7 +7,7 @@ export default function ProgressExample() {
       <h2 className={styles.title}>進行例</h2>
       <div className={styles.container}>
         <p className={styles.subtitle}>店舗の集客を増やしたい場合</p>
-        <p className={styles.planName}>(スタンダードプラン)</p>
+        <p className={styles.planName}>(プレミアムプラン)</p>
 
         <h3 className={styles.descriptionTitle}>
           導線全体の設計〜改善までを、最短で回す
@@ -23,7 +23,7 @@ export default function ProgressExample() {
           <Image
             src="/progress_flow.png"
             unoptimized={true}
-            alt="進行例：店舗の集客を増やしたい場合（スタンダードプラン）"
+            alt="進行例：店舗の集客を増やしたい場合（プレミアムプラン）"
             width={1024}
             height={352}
             className={styles.image}
