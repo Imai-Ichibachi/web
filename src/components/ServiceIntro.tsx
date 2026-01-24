@@ -11,7 +11,7 @@ export default function ServiceIntro() {
       title: "SNS×広告の売上導線に特化",
       link: "#step1",
       color: "#E21E47",
-      image: "/images/feature_sns_ads.jpg",
+      image: "/images/feature_sns_marketing.jpg",
     },
     {
       num: "02",
