@@ -1,0 +1,111 @@
+.container {
+    padding: 120px 0 80px;
+    background-color: transparent;
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.intro {
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.subHeading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.contactInfo {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.buttonContainer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.backButton {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #00a0e9;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 160, 233, 0.2);
+}
+
+.backButton:hover {
+    background-color: #008cc9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 160, 233, 0.3);
+}
+
+.date {
+    text-align: right;
+    margin-top: 4rem;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 1rem 60px;
+    }
+
+    .content {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .heading {
+        font-size: 1.125rem;
+    }
+}

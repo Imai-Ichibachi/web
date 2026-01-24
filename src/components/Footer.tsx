@@ -38,8 +38,8 @@ export default function Footer() {
             >
               運営会社
             </Link>
-            <Link href="#">プライバシーポリシー</Link>
-            <Link href="#">お問い合わせ</Link>
+            <Link href="/privacy">プライバシーポリシー</Link>
+            <Link href="/?plan=growth#contact">お問い合わせ</Link>
           </div>
         </div>
       </div>

@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import styles from "./ContactSection.module.css";
 import emailjs from "@emailjs/browser";
 
 function ContactForm() {
   const searchParams = useSearchParams();
   const form = useRef<HTMLFormElement>(null);
+  const [agreed, setAgreed] = useState(false);
 
   // Initialize state from URL params to avoid cascading render
   const [plan, setPlan] = useState(() => {
@@ -28,6 +30,11 @@ function ContactForm() {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!agreed) {
+      alert("プライバシーポリシーへの同意が必要です。");
+      return;
+    }
 
     if (form.current) {
       // Please replace with your actual EmailJS Service ID, Template ID, and Public Key
@@ -131,6 +138,45 @@ function ContactForm() {
           required
           placeholder="ご相談内容をご記入ください"
         ></textarea>
+      </div>
+
+      <div
+        style={{
+          marginBottom: "1.5rem",
+          textAlign: "center",
+          fontSize: "0.9rem",
+        }}
+      >
+        <label
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            style={{
+              width: "18px",
+              height: "18px",
+              cursor: "pointer",
+            }}
+          />
+          <span>
+            <a
+              href="/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "underline", color: "#00a0e9" }}
+            >
+              プライバシーポリシー
+            </a>
+            に同意する
+          </span>
+        </label>
       </div>
       <button type="submit" className={styles.submitButton}>
         送信する
