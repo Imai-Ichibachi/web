@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google"; // Using Noto Sans JP for Japanese text
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSansJP.variable}`}>
+        <GoogleAnalytics />
         <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
       </body>
     </html>
