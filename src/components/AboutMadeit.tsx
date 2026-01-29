@@ -31,10 +31,10 @@ export default function AboutMadeit() {
           <picture>
             <source
               media="(max-width: 1024px)"
-              srcSet="/about_madeit_mobile_v2.png"
+              srcSet="/about_madeit_mobile_v3.png"
             />
             <img
-              src="/madeit-features.png"
+              src="/about_madeit_pc_v2.png"
               alt="Madeitの特徴"
               className={styles.featuresImage}
             />
