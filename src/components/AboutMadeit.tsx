@@ -15,9 +15,9 @@ export default function AboutMadeit() {
           <p className={styles.label}>What is Madeit!</p>
           <h2 className={styles.title}>Madeitとは</h2>
           <p className={styles.description}>
-            Madeitは、売上に直結する「集客導線」を設計し、運用までやり切る実行型マーケ支援です。
+            SNSで集客したいけど、なにをしたらいいのかわからない。そこまで手が回らない。
             <br />
-            SNS投稿や広告運用を”やったつもり”で終わらせず、SNSでの認知獲得から、LP・LINE・電話・予約などの導線整備、成約に至るまでを一気通貫で設計・改善し、成果につながる仕組みとして回します。
+            Madeitでは作成から運用、マーケットまで一貫してサポートし、目標達成に貢献します。
           </p>
         </motion.div>
 

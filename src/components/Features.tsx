@@ -34,10 +34,8 @@ export default function Features() {
               className={styles.description}
               style={{ whiteSpace: "pre-line" }}
             >
-              お客様の目的・業種・市場規模などに合わせた、SNSの選定とターゲティング設定。
-              広告をお金をかけて露出を増やすだけのツールから、
-              売上・集客に直結する営業マンへと昇華させます。
-              圧倒的な顧客理解によるデータ分析とABテストによって成功確率の高い広告運用を実現しています。
+              あなたのビジネスの目的・業種・市場規模などを徹底的に分析し、最適なSNSの選定・ターゲティング設定を行います。
+              ビジネスの成長につながっていないツールから、集客・売上に直結する広告ツールに進化させます。
             </p>
           </div>
           <div className={styles.visual}>
@@ -88,19 +86,16 @@ export default function Features() {
               <h3 className={styles.title}>
                 STEP 02
                 <span className={styles.titleMain}>
-                  クリエイティブ制作から広告運用まで弊社が一括サポート
+                  制作から広告運用までまるっと実施
                 </span>
               </h3>
               <p
                 className={styles.description}
                 style={{ whiteSpace: "pre-line" }}
               >
-                広告運用において、クリエイティブというのは非常に重要なピースの1つです。
-                PR動画、広告動画、エンタメ動画、ショートドラマなど...
-                お客様のビジネスに合わせた最も効果的な動画ジャンルをご提案いたします。
-                それを実現可能にしているのが弊社の100名以上の動画制作プロ集団です。
-                内製化された編集のプロ集団だからこそ、
-                お客様の想いや強みをダイレクトに訴求できるクリエイティブを制作可能です。
+                SNS運用において顧客の第一印象となるクリエイティブから、あなたのビジネスに興味を持たせるための誘導まで一貫して行っております。
+                PR動画、エンタメ動画、ショートドラマなどあなたのビジネスに合わせて最適な構成をご提案いたします。
+                内製化された100名以上のプロ動画制作チームを抱えているのでイメージの齟齬なく制作が可能です。
               </p>
             </div>
             <div className={styles.visual}>
@@ -121,13 +116,12 @@ export default function Features() {
           <div className={styles.stepBottom}>
             <div className={styles.bottomContent}>
               <h4 className={styles.bottomTitle}>
-                導線全体の設計〜改善までを、最短で回す
+                動線全体の設計から改善までを高速でサイクル
               </h4>
               <p className={styles.bottomText}>
-                ヒアリング → 導線設計 → 撮影・編集 → 投稿・配信 →
-                効果測定までを一気通貫で運用。
+                ヒアリング→動線設計→撮影→編集→投稿→効果測定までを一貫して実施。
                 <br />
-                配信後の結果は即座に改善へ反映し、勝ちパターンを高速で作ります。
+                効果測定で得られたデータから改善点を洗い出し、高速で最適な運用を導き出します。
               </p>
             </div>
             <div className={styles.bottomVisual}>
@@ -161,19 +155,18 @@ export default function Features() {
             <h3 className={styles.title}>
               STEP 03
               <span className={styles.titleMain}>
-                『再生数』で終わらせず『問い合わせ/売上』までをとことん追求
+                目先の「再生数」で終わらせず、
+                <br />
+                「問い合わせ・売上」を伸ばすまでとことん追求
               </span>
             </h3>
             <p
               className={styles.description}
               style={{ whiteSpace: "pre-line" }}
             >
-              多くのSNS運用代行サービスは、動画の再生数をゴールとしています。
-              しかし、その『再生数』こそがあなたのビジネスの成長を阻む罠だとしたら...?
-              SNSで最も重要なのは正しいターゲットへコンテンツを届けることです。
-              再生数のみをゴールとしていた場合、気づかぬうちに間違った方向へ進んでしまう場合があります。
-              Madeitでは『問い合わせ/売上』をゴールにすることで、
-              常に正しい方向へとお客様のビジネスを導くことができます。
+              多くのSNS運用代行サービスは動画の再生数やいいね数などの表面定な数値を目標として設定しています。
+              我々はその目先の数値だけではなく、「ビジネスに貢献する数値」を目標として設定します。
+              意味のない数値をむやみに伸ばすのではなく、意味のある数値を伸ばし、あなたのビジネスの目標達成に貢献します。
             </p>
           </div>
           <div className={styles.visual}>

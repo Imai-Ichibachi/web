@@ -15,14 +15,15 @@ export default function ServiceIntro() {
     },
     {
       num: "02",
-      title: "クリエイティブ制作から広告運用まで\n弊社が一括サポート",
+      title: "制作から広告運用までまるっと実施",
       link: "#step2",
       color: "#E2B21F",
       image: "/service_intro_02_new.jpg",
     },
     {
       num: "03",
-      title: "『再生数』で終わらせず\n『問い合わせ/売上』まで\nとことん追求",
+      title:
+        "目先の「再生数」で終わらせず、\n「問い合わせ・売上」を伸ばすまでとことん追求",
       link: "#step3",
       color: "#1F41E2",
       image: "/images/feature_sales_growth.jpg",
@@ -40,9 +41,9 @@ export default function ServiceIntro() {
           <p className={styles.label}>Why Madeit!</p>
           <h2 className={styles.title}>Madeitが選ばれる理由</h2>
           <p className={styles.text}>
-            大手代理店にはできない、きめ細やかなサポートと
+            大手代理店にはできない、一人一人に寄り添ったきめ細やかなサポートで、
             <br />
-            圧倒的な当事者意識で、あなたのビジネスを加速させます。
+            あなたのビジネスの成長に貢献します。
           </p>
         </motion.div>
 

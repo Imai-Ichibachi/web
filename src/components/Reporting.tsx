@@ -13,12 +13,10 @@ export default function Reporting() {
             <div className={styles.header}>
               <span className={styles.label}>さらに</span>
               <h3 className={styles.title}>
-                勝ちパターンを見つける レポーティング
+                「なぜ伸びたのか」がわかるレポーティング
               </h3>
               <p className={styles.description}>
-                全体のサマリーや個別レポートをご報告いたします。
-                どのクリエイティブがよかったのか、どんな広告施策が効果があったのかなど、
-                全体と個別で広告の結果のを見える化を行い、勝ちパターンを見つけます。
+                運用後にインサイトを分析し、どのようなクリエイティブ・広告設定が有効であったのかを常に分析しつづけ、あなたのSNSを日々進化させていきます。
               </p>
             </div>
           </div>
